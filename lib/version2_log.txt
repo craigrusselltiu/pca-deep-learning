@@ -1,0 +1,99 @@
+E:\Craig\10_university\Units\2020 S1\ELEC4712\pca-deep-learning>python src/train.py
+Using TensorFlow backend.
+2020-09-08 03:49:18.812771: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'cudart64_101.dll'; dlerror: cudart64_101.dll not found
+2020-09-08 03:49:18.819763: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+0.054901960784313725
+2020-09-08 03:49:21.430631: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'nvcuda.dll'; dlerror: nvcuda.dll not found
+2020-09-08 03:49:21.437601: E tensorflow/stream_executor/cuda/cuda_driver.cc:313] failed call to cuInit: UNKNOWN ERROR (303)
+2020-09-08 03:49:21.455665: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: Russell
+2020-09-08 03:49:21.466261: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: Russell
+2020-09-08 03:49:21.472316: I tensorflow/core/platform/cpu_feature_guard.cc:143] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
+2020-09-08 03:49:21.495271: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x20c00ee1e90 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-09-08 03:49:21.506761: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+Train on 90 samples, validate on 10 samples
+Epoch 1/25
+90/90 [==============================] - 12s 136ms/step - loss: 1.6094 - accuracy: 0.2222 - val_loss: 1.6066 - val_accuracy: 0.4000
+Epoch 2/25
+90/90 [==============================] - 12s 134ms/step - loss: 1.6056 - accuracy: 0.3667 - val_loss: 1.6035 - val_accuracy: 0.4000
+Epoch 3/25
+90/90 [==============================] - 12s 134ms/step - loss: 1.6020 - accuracy: 0.3778 - val_loss: 1.6005 - val_accuracy: 0.4000
+Epoch 4/25
+90/90 [==============================] - 12s 133ms/step - loss: 1.5985 - accuracy: 0.3778 - val_loss: 1.5976 - val_accuracy: 0.4000
+Epoch 5/25
+90/90 [==============================] - 12s 137ms/step - loss: 1.5950 - accuracy: 0.3778 - val_loss: 1.5947 - val_accuracy: 0.4000
+Epoch 6/25
+90/90 [==============================] - 12s 135ms/step - loss: 1.5916 - accuracy: 0.3778 - val_loss: 1.5918 - val_accuracy: 0.4000
+Epoch 7/25
+90/90 [==============================] - 12s 133ms/step - loss: 1.5882 - accuracy: 0.3778 - val_loss: 1.5890 - val_accuracy: 0.4000
+Epoch 8/25
+90/90 [==============================] - 12s 133ms/step - loss: 1.5849 - accuracy: 0.3778 - val_loss: 1.5862 - val_accuracy: 0.4000
+Epoch 9/25
+90/90 [==============================] - 12s 134ms/step - loss: 1.5815 - accuracy: 0.3778 - val_loss: 1.5834 - val_accuracy: 0.4000
+Epoch 10/25
+90/90 [==============================] - 12s 135ms/step - loss: 1.5782 - accuracy: 0.3778 - val_loss: 1.5805 - val_accuracy: 0.4000
+Epoch 11/25
+90/90 [==============================] - 12s 135ms/step - loss: 1.5747 - accuracy: 0.3778 - val_loss: 1.5776 - val_accuracy: 0.4000
+Epoch 12/25
+90/90 [==============================] - 12s 134ms/step - loss: 1.5713 - accuracy: 0.3778 - val_loss: 1.5746 - val_accuracy: 0.4000
+Epoch 13/25
+90/90 [==============================] - 12s 134ms/step - loss: 1.5678 - accuracy: 0.3778 - val_loss: 1.5715 - val_accuracy: 0.4000
+Epoch 14/25
+90/90 [==============================] - 12s 134ms/step - loss: 1.5643 - accuracy: 0.3778 - val_loss: 1.5683 - val_accuracy: 0.4000
+Epoch 15/25
+90/90 [==============================] - 12s 133ms/step - loss: 1.5606 - accuracy: 0.3778 - val_loss: 1.5651 - val_accuracy: 0.4000
+Epoch 16/25
+90/90 [==============================] - 12s 133ms/step - loss: 1.5569 - accuracy: 0.3778 - val_loss: 1.5618 - val_accuracy: 0.4000
+Epoch 17/25
+90/90 [==============================] - 12s 134ms/step - loss: 1.5531 - accuracy: 0.3778 - val_loss: 1.5584 - val_accuracy: 0.4000
+Epoch 18/25
+90/90 [==============================] - 12s 138ms/step - loss: 1.5491 - accuracy: 0.3778 - val_loss: 1.5548 - val_accuracy: 0.4000
+Epoch 19/25
+90/90 [==============================] - 14s 161ms/step - loss: 1.5451 - accuracy: 0.3778 - val_loss: 1.5512 - val_accuracy: 0.4000
+Epoch 20/25
+90/90 [==============================] - 13s 146ms/step - loss: 1.5409 - accuracy: 0.3778 - val_loss: 1.5474 - val_accuracy: 0.4000
+Epoch 21/25
+90/90 [==============================] - 13s 139ms/step - loss: 1.5366 - accuracy: 0.3778 - val_loss: 1.5435 - val_accuracy: 0.4000
+Epoch 22/25
+90/90 [==============================] - 13s 139ms/step - loss: 1.5321 - accuracy: 0.3778 - val_loss: 1.5395 - val_accuracy: 0.4000
+Epoch 23/25
+90/90 [==============================] - 12s 138ms/step - loss: 1.5274 - accuracy: 0.3778 - val_loss: 1.5353 - val_accuracy: 0.4000
+Epoch 24/25
+90/90 [==============================] - 13s 140ms/step - loss: 1.5226 - accuracy: 0.3778 - val_loss: 1.5310 - val_accuracy: 0.4000
+Epoch 25/25
+90/90 [==============================] - 13s 143ms/step - loss: 1.5175 - accuracy: 0.3778 - val_loss: 1.5264 - val_accuracy: 0.4000
+[[0.22588348 0.25173035 0.18944354 0.1672775  0.16566518]
+ [0.22437602 0.2512714  0.19068559 0.16820121 0.16546582]
+ [0.22481549 0.2522814  0.18952458 0.16757278 0.16580576]
+ [0.22740743 0.2540756  0.189308   0.16487998 0.1643291 ]
+ [0.22553392 0.25368464 0.18943721 0.1662342  0.16510998]
+ [0.2268074  0.256656   0.18818827 0.16584639 0.16250193]
+ [0.22749712 0.25491053 0.18881829 0.16556011 0.16321397]
+ [0.22604668 0.25361076 0.18900402 0.1672237  0.16411494]
+ [0.22825573 0.25856277 0.1886557  0.16351579 0.16100998]
+ [0.22797334 0.25481066 0.1899861  0.16465057 0.16257933]
+ [0.22685045 0.25623026 0.18805166 0.16544476 0.16342287]
+ [0.22278574 0.24616058 0.19175455 0.17066446 0.16863462]]
+Entry  0
+Prediction:  1  Correct:  1
+Entry  1
+Prediction:  1  Correct:  4
+Entry  2
+Prediction:  1  Correct:  0
+Entry  3
+Prediction:  1  Correct:  0
+Entry  4
+Prediction:  1  Correct:  3
+Entry  5
+Prediction:  1  Correct:  2
+Entry  6
+Prediction:  1  Correct:  2
+Entry  7
+Prediction:  1  Correct:  1
+Entry  8
+Prediction:  1  Correct:  0
+Entry  9
+Prediction:  1  Correct:  0
+Entry  10
+Prediction:  1  Correct:  2
+Entry  11
+Prediction:  1  Correct:  1

@@ -3,6 +3,7 @@ import nibabel as nib
 import numpy as np
 import os
 import pandas as pd
+import tensorflow as tf
 
 from pydicom import dcmread
 
@@ -13,8 +14,32 @@ resample = (384, 384, 19)
 
 
 def main():
-    prev_dcm()
-    #prev_nifti()
+    prev_data()
+
+
+# Preview roi data
+def prev_data():
+    train_x = np.load('./src/x_train.npy')
+    train_y = np.load('./src/y_train.npy')
+
+    for i in range(len(train_x)):
+        print(np.shape(train_x[i]))
+        print(train_y[i])
+
+        img = train_x[i]
+        img = np.swapaxes(img, 0, 1)
+        img = np.swapaxes(img, 0, 2)
+
+        fig = plt.figure()
+
+        for num, slice in enumerate(img):
+            print(np.shape(slice))
+            y = fig.add_subplot(2, 2, num+1)
+            new_img = slice
+            y.imshow(new_img)
+        plt.show()
+
+        break
 
 
 # Preview DICOM files
@@ -27,7 +52,6 @@ def prev_dcm():
             files[dirpath[29:43]] = dirpath
     
     for key in files:
-        path = files[key]
         slices = [dcmread(files[key] + '/' + s).pixel_array for s in os.listdir(files[key])]
         print(np.shape(slices))
 
