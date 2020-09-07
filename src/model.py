@@ -4,18 +4,16 @@ from keras.optimizers import Adam, SGD
 
 
 model = Sequential()
-model.add(Conv3D(input_shape=(40, 40, 4, 1), filters=64, kernel_size=(3, 3, 3), padding='same', activation='relu'))
-model.add(Conv3D(filters=64, kernel_size=(3, 3, 3), padding='same', activation='relu'))
+model.add(Conv3D(input_shape=(40, 40, 4, 1), filters=16, kernel_size=(3, 3, 3), padding='same', activation='relu'))
 model.add(MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2)))
 
-model.add(Conv3D(filters=128, kernel_size=(3, 3, 3), padding='same', activation='relu'))
-model.add(Conv3D(filters=128, kernel_size=(3, 3, 3), padding='same', activation='relu'))
+model.add(Conv3D(filters=32, kernel_size=(3, 3, 3), padding='same', activation='relu'))
 model.add(MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2)))
 
 model.add(Flatten())
-model.add(Dense(units=1024, activation='relu'))
+model.add(Dense(units=256, activation='relu'))
 model.add(Dropout(rate=0.4))
-model.add(Dense(units=512, activation='relu'))
+model.add(Dense(units=128, activation='relu'))
 model.add(Dropout(rate=0.4))
 model.add(Dense(units=5, activation='softmax'))
 

@@ -1,0 +1,201 @@
+E:\Craig\10_university\Units\2020 S1\ELEC4712\pca-deep-learning>python src/model.py
+Using TensorFlow backend.
+2020-09-08 05:31:13.345927: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'cudart64_101.dll'; dlerror: cudart64_101.dll not found
+2020-09-08 05:31:13.353302: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2020-09-08 05:31:15.664444: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'nvcuda.dll'; dlerror: nvcuda.dll not found
+2020-09-08 05:31:15.670817: E tensorflow/stream_executor/cuda/cuda_driver.cc:313] failed call to cuInit: UNKNOWN ERROR (303)
+2020-09-08 05:31:15.688598: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: Russell
+2020-09-08 05:31:15.703087: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: Russell
+2020-09-08 05:31:15.716001: I tensorflow/core/platform/cpu_feature_guard.cc:143] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
+2020-09-08 05:31:15.739717: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x1572e490920 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-09-08 05:31:15.745693: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+Model: "sequential_1"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+conv3d_1 (Conv3D)            (None, 40, 40, 4, 16)     448
+_________________________________________________________________
+max_pooling3d_1 (MaxPooling3 (None, 20, 20, 2, 16)     0
+_________________________________________________________________
+conv3d_2 (Conv3D)            (None, 20, 20, 2, 32)     13856
+_________________________________________________________________
+max_pooling3d_2 (MaxPooling3 (None, 10, 10, 1, 32)     0
+_________________________________________________________________
+flatten_1 (Flatten)          (None, 3200)              0
+_________________________________________________________________
+dense_1 (Dense)              (None, 256)               819456
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 256)               0
+_________________________________________________________________
+dense_2 (Dense)              (None, 128)               32896
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 128)               0
+_________________________________________________________________
+dense_3 (Dense)              (None, 5)                 645
+=================================================================
+Total params: 867,301
+Trainable params: 867,301
+Non-trainable params: 0
+_________________________________________________________________
+
+E:\Craig\10_university\Units\2020 S1\ELEC4712\pca-deep-learning>python src/train.py
+Using TensorFlow backend.
+2020-09-08 05:31:18.414651: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'cudart64_101.dll'; dlerror: cudart64_101.dll not found
+2020-09-08 05:31:18.420654: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+0.054901960784313725
+2020-09-08 05:31:21.182571: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'nvcuda.dll'; dlerror: nvcuda.dll not found
+2020-09-08 05:31:21.187700: E tensorflow/stream_executor/cuda/cuda_driver.cc:313] failed call to cuInit: UNKNOWN ERROR (303)
+2020-09-08 05:31:21.199125: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: Russell
+2020-09-08 05:31:21.206208: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: Russell
+2020-09-08 05:31:21.215883: I tensorflow/core/platform/cpu_feature_guard.cc:143] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
+2020-09-08 05:31:21.234728: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x21b67e9e280 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-09-08 05:31:21.244422: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+Train on 90 samples, validate on 10 samples
+Epoch 1/50
+90/90 [==============================] - 3s 33ms/step - loss: 1.5557 - accuracy: 0.2889 - val_loss: 1.2627 - val_accuracy: 0.4000
+Epoch 2/50
+90/90 [==============================] - 3s 30ms/step - loss: 1.4616 - accuracy: 0.4111 - val_loss: 1.3473 - val_accuracy: 0.5000
+Epoch 3/50
+90/90 [==============================] - 3s 31ms/step - loss: 1.4664 - accuracy: 0.3556 - val_loss: 1.3348 - val_accuracy: 0.5000
+Epoch 4/50
+90/90 [==============================] - 3s 30ms/step - loss: 1.4796 - accuracy: 0.2667 - val_loss: 1.3573 - val_accuracy: 0.5000
+Epoch 5/50
+90/90 [==============================] - 3s 30ms/step - loss: 1.4442 - accuracy: 0.3222 - val_loss: 1.3189 - val_accuracy: 0.5000
+Epoch 6/50
+90/90 [==============================] - 3s 30ms/step - loss: 1.4408 - accuracy: 0.4111 - val_loss: 1.2987 - val_accuracy: 0.5000
+Epoch 7/50
+90/90 [==============================] - 3s 30ms/step - loss: 1.5213 - accuracy: 0.3778 - val_loss: 1.3444 - val_accuracy: 0.4000
+Epoch 8/50
+90/90 [==============================] - 3s 30ms/step - loss: 1.4471 - accuracy: 0.3222 - val_loss: 1.3275 - val_accuracy: 0.5000
+Epoch 9/50
+90/90 [==============================] - 3s 30ms/step - loss: 1.4265 - accuracy: 0.3889 - val_loss: 1.3488 - val_accuracy: 0.5000
+Epoch 10/50
+90/90 [==============================] - 3s 30ms/step - loss: 1.4501 - accuracy: 0.3667 - val_loss: 1.3240 - val_accuracy: 0.5000
+Epoch 11/50
+90/90 [==============================] - 3s 30ms/step - loss: 1.4351 - accuracy: 0.3111 - val_loss: 1.2595 - val_accuracy: 0.5000
+Epoch 12/50
+90/90 [==============================] - 3s 30ms/step - loss: 1.4341 - accuracy: 0.3556 - val_loss: 1.3675 - val_accuracy: 0.4000
+Epoch 13/50
+90/90 [==============================] - 3s 30ms/step - loss: 1.4694 - accuracy: 0.4000 - val_loss: 1.3099 - val_accuracy: 0.5000
+Epoch 14/50
+90/90 [==============================] - 3s 30ms/step - loss: 1.4302 - accuracy: 0.3444 - val_loss: 1.2833 - val_accuracy: 0.5000
+Epoch 15/50
+90/90 [==============================] - 3s 30ms/step - loss: 1.4337 - accuracy: 0.3000 - val_loss: 1.3089 - val_accuracy: 0.5000
+Epoch 16/50
+90/90 [==============================] - 3s 32ms/step - loss: 1.4085 - accuracy: 0.3444 - val_loss: 1.2910 - val_accuracy: 0.5000
+Epoch 17/50
+90/90 [==============================] - 3s 31ms/step - loss: 1.4639 - accuracy: 0.3444 - val_loss: 1.3589 - val_accuracy: 0.3000
+Epoch 18/50
+90/90 [==============================] - 3s 30ms/step - loss: 1.4112 - accuracy: 0.3444 - val_loss: 1.3051 - val_accuracy: 0.7000
+Epoch 19/50
+90/90 [==============================] - 3s 30ms/step - loss: 1.3769 - accuracy: 0.4444 - val_loss: 1.3439 - val_accuracy: 0.5000
+Epoch 20/50
+90/90 [==============================] - 3s 30ms/step - loss: 1.3256 - accuracy: 0.4556 - val_loss: 1.3251 - val_accuracy: 0.6000
+Epoch 21/50
+90/90 [==============================] - 3s 31ms/step - loss: 1.3284 - accuracy: 0.4556 - val_loss: 1.4111 - val_accuracy: 0.3000
+Epoch 22/50
+90/90 [==============================] - 3s 31ms/step - loss: 1.2144 - accuracy: 0.4667 - val_loss: 1.6070 - val_accuracy: 0.6000
+Epoch 23/50
+90/90 [==============================] - 3s 34ms/step - loss: 1.2064 - accuracy: 0.4778 - val_loss: 1.6109 - val_accuracy: 0.3000
+Epoch 24/50
+90/90 [==============================] - 3s 30ms/step - loss: 1.1164 - accuracy: 0.5222 - val_loss: 1.8046 - val_accuracy: 0.1000
+Epoch 25/50
+90/90 [==============================] - 3s 30ms/step - loss: 1.0212 - accuracy: 0.6222 - val_loss: 1.9356 - val_accuracy: 0.3000
+Epoch 26/50
+90/90 [==============================] - 3s 30ms/step - loss: 0.7767 - accuracy: 0.7111 - val_loss: 1.9115 - val_accuracy: 0.2000
+Epoch 27/50
+90/90 [==============================] - 3s 30ms/step - loss: 0.6131 - accuracy: 0.7444 - val_loss: 2.6973 - val_accuracy: 0.2000
+Epoch 28/50
+90/90 [==============================] - 3s 30ms/step - loss: 0.3987 - accuracy: 0.9000 - val_loss: 3.8369 - val_accuracy: 0.1000
+Epoch 29/50
+90/90 [==============================] - 3s 30ms/step - loss: 0.3054 - accuracy: 0.8778 - val_loss: 6.7117 - val_accuracy: 0.1000
+Epoch 30/50
+90/90 [==============================] - 3s 30ms/step - loss: 0.2999 - accuracy: 0.9111 - val_loss: 4.9432 - val_accuracy: 0.0000e+00
+Epoch 31/50
+90/90 [==============================] - 3s 31ms/step - loss: 0.1086 - accuracy: 0.9667 - val_loss: 5.6301 - val_accuracy: 0.0000e+00
+Epoch 32/50
+90/90 [==============================] - 3s 31ms/step - loss: 0.1558 - accuracy: 0.9556 - val_loss: 6.1982 - val_accuracy: 0.0000e+00
+Epoch 33/50
+90/90 [==============================] - 3s 31ms/step - loss: 0.2619 - accuracy: 0.9111 - val_loss: 5.3149 - val_accuracy: 0.2000
+Epoch 34/50
+90/90 [==============================] - 3s 30ms/step - loss: 0.1919 - accuracy: 0.9556 - val_loss: 4.5983 - val_accuracy: 0.0000e+00
+Epoch 35/50
+90/90 [==============================] - 3s 32ms/step - loss: 0.0879 - accuracy: 0.9667 - val_loss: 7.2857 - val_accuracy: 0.0000e+00
+Epoch 36/50
+90/90 [==============================] - 3s 30ms/step - loss: 0.0401 - accuracy: 1.0000 - val_loss: 7.2759 - val_accuracy: 0.0000e+00
+Epoch 37/50
+90/90 [==============================] - 3s 30ms/step - loss: 0.1113 - accuracy: 0.9444 - val_loss: 5.9466 - val_accuracy: 0.1000
+Epoch 38/50
+90/90 [==============================] - 3s 31ms/step - loss: 0.0730 - accuracy: 0.9889 - val_loss: 7.7599 - val_accuracy: 0.1000
+Epoch 39/50
+90/90 [==============================] - 3s 34ms/step - loss: 0.1092 - accuracy: 0.9778 - val_loss: 6.5384 - val_accuracy: 0.1000
+Epoch 40/50
+90/90 [==============================] - 3s 34ms/step - loss: 0.0569 - accuracy: 0.9889 - val_loss: 9.2190 - val_accuracy: 0.1000
+Epoch 41/50
+90/90 [==============================] - 3s 33ms/step - loss: 0.0410 - accuracy: 0.9889 - val_loss: 9.1359 - val_accuracy: 0.0000e+00
+Epoch 42/50
+90/90 [==============================] - 3s 36ms/step - loss: 0.0093 - accuracy: 1.0000 - val_loss: 9.7178 - val_accuracy: 0.1000
+Epoch 43/50
+90/90 [==============================] - 3s 35ms/step - loss: 0.0189 - accuracy: 1.0000 - val_loss: 9.9089 - val_accuracy: 0.2000
+Epoch 44/50
+90/90 [==============================] - 3s 31ms/step - loss: 0.0527 - accuracy: 0.9889 - val_loss: 10.0878 - val_accuracy: 0.0000e+00
+Epoch 45/50
+90/90 [==============================] - 3s 33ms/step - loss: 0.0142 - accuracy: 1.0000 - val_loss: 11.5473 - val_accuracy: 0.0000e+00
+Epoch 46/50
+90/90 [==============================] - 3s 32ms/step - loss: 0.0075 - accuracy: 1.0000 - val_loss: 11.1956 - val_accuracy: 0.0000e+00
+Epoch 47/50
+90/90 [==============================] - 3s 31ms/step - loss: 0.0880 - accuracy: 0.9556 - val_loss: 7.1927 - val_accuracy: 0.2000
+Epoch 48/50
+90/90 [==============================] - 3s 30ms/step - loss: 0.0268 - accuracy: 0.9889 - val_loss: 8.0706 - val_accuracy: 0.1000
+Epoch 49/50
+90/90 [==============================] - 3s 30ms/step - loss: 0.0543 - accuracy: 0.9778 - val_loss: 7.6900 - val_accuracy: 0.0000e+00
+Epoch 50/50
+90/90 [==============================] - 3s 30ms/step - loss: 0.0902 - accuracy: 0.9889 - val_loss: 8.0947 - val_accuracy: 0.0000e+00
+[[3.30585241e-02 4.45238382e-01 1.22196615e-01 2.93269664e-01
+  1.06236868e-01]
+ [4.34157401e-02 1.87820375e-01 5.38916051e-01 6.73867688e-02
+  1.62461087e-01]
+ [3.46463583e-02 5.12698174e-01 4.37881380e-01 2.48759938e-03
+  1.22864926e-02]
+ [3.52851828e-08 9.99903321e-01 9.67215237e-05 6.18760512e-12
+  5.00696595e-09]
+ [1.81543897e-03 9.93098915e-01 4.25536744e-03 1.13465634e-04
+  7.16782350e-04]
+ [3.54836484e-05 4.26820386e-03 1.21180001e-05 2.49105098e-04
+  9.95435059e-01]
+ [2.80749821e-03 9.80606854e-01 4.10788751e-04 1.59190893e-02
+  2.55786901e-04]
+ [8.17723051e-02 9.03439760e-01 5.41725785e-06 1.47822751e-02
+  3.41474021e-07]
+ [1.71482060e-02 2.53080457e-01 7.67865181e-02 3.93975407e-01
+  2.59009451e-01]
+ [9.99996424e-01 1.44946966e-06 1.36428673e-06 8.09235644e-07
+  8.83378370e-11]
+ [8.48691096e-04 9.63199794e-01 7.06707640e-03 3.49591312e-04
+  2.85349041e-02]
+ [4.73726779e-01 1.33992329e-01 3.92232746e-01 4.49778599e-05
+  3.16098476e-06]]
+Entry  0
+Prediction:  1  Correct:  1
+Entry  1
+Prediction:  2  Correct:  2
+Entry  2
+Prediction:  1  Correct:  4
+Entry  3
+Prediction:  1  Correct:  4
+Entry  4
+Prediction:  1  Correct:  0
+Entry  5
+Prediction:  4  Correct:  2
+Entry  6
+Prediction:  1  Correct:  2
+Entry  7
+Prediction:  1  Correct:  0
+Entry  8
+Prediction:  3  Correct:  0
+Entry  9
+Prediction:  0  Correct:  0
+Entry  10
+Prediction:  1  Correct:  1
+Entry  11
+Prediction:  0  Correct:  1
