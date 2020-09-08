@@ -18,7 +18,7 @@ model.add(Dropout(rate=0.4))
 model.add(Dense(units=5, activation='softmax'))
 
 model.compile(loss='categorical_crossentropy',
-    optimizer=SGD(lr=0.01, momentum=0.99),
+    optimizer=SGD(lr=0.01, momentum=0.9),
     metrics=['accuracy'])
 
 model.summary()

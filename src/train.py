@@ -9,7 +9,6 @@ x_train = np.load('./src/x_train.npy')
 y_train = np.load('./src/y_train.npy')
 
 x_train = x_train / 255.0
-print(np.min(x_train[0]))
 x_train = x_train.reshape(len(x_train), 40, 40, 4, 1)
 y_train = [x - 1 for x in y_train]
 y_train = to_categorical(y_train, 5)
@@ -24,6 +23,6 @@ model.fit(x_train, y_train,
 
 predictions = model.predict(x_test)
 print(predictions)
+
 for i in range(len(y_test)):
-    print('Entry ', i)
-    print('Prediction: ', np.argmax(predictions[i]), ' Correct: ', np.argmax(y_test[i]))
+    print('Test Data ', i, ' - Prediction: ', np.argmax(predictions[i]), ' Correct: ', np.argmax(y_test[i]))
