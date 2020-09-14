@@ -12,9 +12,9 @@ model.add(MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2)))
 
 model.add(Flatten())
 model.add(Dense(units=256, activation='relu'))
-model.add(Dropout(rate=0.4))
+model.add(Dropout(rate=0.3))
 model.add(Dense(units=128, activation='relu'))
-model.add(Dropout(rate=0.4))
+model.add(Dropout(rate=0.3))
 model.add(Dense(units=5, activation='softmax'))
 
 model.compile(loss='categorical_crossentropy',
