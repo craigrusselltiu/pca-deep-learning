@@ -8,19 +8,20 @@ import tensorflow as tf
 from pydicom import dcmread
 
 
-img_dir = '../prostate_images/PROSTATEx'
-csv_dir = './lib/combined.csv'
+img_dir = '../../prostate_images/PROSTATEx'
+csv_dir = '../lib/ADC.csv'
 resample = (384, 384, 19)
 
 
 def main():
-    prev_data()
+    prev_dcm()
 
 
 # Preview roi data
 def prev_data():
-    train_x = np.load('./src/x_train.npy')
-    train_y = np.load('./src/y_train.npy')
+    train_x = np.load('../src/x_sample.npy')
+    train_y = np.load('../src/y_sample.npy')
+    print(train_y)
 
     for i in range(len(train_x)):
         print(np.shape(train_x[i]))
@@ -48,7 +49,7 @@ def prev_dcm():
     files = {}
 
     for dirpath, dirnames, filenames in os.walk(img_dir):
-        if 't2tsetra' in dirpath:
+        if 'ADC' in dirpath:
             files[dirpath[29:43]] = dirpath
     
     for key in files:
@@ -73,7 +74,7 @@ def prev_nifti():
     
     for index, row in data.iterrows():
 
-        img = nib.load('./res/converted_nifti/' + row['ProxID'] + '.nii')
+        img = nib.load('../res/converted_nifti/' + row['ProxID'] + '.nii')
         a = np.array(img.dataobj)
         a = np.swapaxes(a, 0, 2)
         print(np.shape(a))

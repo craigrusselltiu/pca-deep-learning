@@ -22,4 +22,4 @@ model.compile(loss='categorical_crossentropy',
     metrics=['accuracy'])
 
 model.summary()
-model.save('./src/model')
+model.save('model')

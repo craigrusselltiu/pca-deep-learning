@@ -2,8 +2,8 @@ import pandas as pd
 import sys
 
 
-img_csv = './lib/ProstateX-2-Images-Train.csv'
-find_csv = './lib/ProstateX-2-Findings-Train.csv'
+img_csv = '../lib/ProstateX-2-Images-Train.csv'
+find_csv = '../lib/ProstateX-2-Findings-Train.csv'
 
 
 def main():
@@ -20,7 +20,7 @@ def combine(img):
     frames = [img_df.reset_index(drop=True), find_df.reset_index(drop=True)] # reset indices
     combined = pd.concat(frames, axis = 1) # concatenate horizontally
     combined = combined.loc[:, ~combined.columns.duplicated()] # drop duplicate columns
-    combined.to_csv('./lib/' + img + '.csv')
+    combined.to_csv('../lib/' + img + '.csv')
 
 
 if __name__ == '__main__':
