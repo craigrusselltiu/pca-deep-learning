@@ -12,11 +12,11 @@ img_dir = '../../prostate_images/PROSTATEx'
 
 
 # Load data
-data = pd.read_csv('../lib/ADC.csv')
+data = pd.read_csv('../lib/t2_tse_tra.csv')
 
 imgs = {}
 for dirpath, dirnames, filenames in os.walk(img_dir):
-    if 'ADC' in dirpath:
+    if 't2tsetra' in dirpath:
         imgs[dirpath[32:46]] = dirpath
 
 x = []
@@ -50,5 +50,5 @@ for index, row in data.iterrows():
 x = np.array(x)
 y = np.array(y)
 
-np.save('x_sample', x)
-np.save('y_sample', y)
+np.save('x_t2tsetra', x)
+np.save('y_t2tsetra', y)
