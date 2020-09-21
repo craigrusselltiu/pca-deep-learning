@@ -11,9 +11,9 @@ model.add(Conv3D(filters=32, kernel_size=(3, 3, 3), padding='same', activation='
 model.add(MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2)))
 
 model.add(Flatten())
-model.add(Dense(units=256, activation='relu'))
-model.add(Dropout(rate=0.4))
 model.add(Dense(units=128, activation='relu'))
+model.add(Dropout(rate=0.4))
+model.add(Dense(units=64, activation='relu'))
 model.add(Dropout(rate=0.4))
 model.add(Dense(units=5, activation='softmax'))
 

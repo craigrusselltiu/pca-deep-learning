@@ -5,7 +5,7 @@ from keras.callbacks import EarlyStopping
 from keras.utils import to_categorical
 from keras.models import load_model
 from sklearn.model_selection import train_test_split
-from torchio.transforms import OneOf, RandomAffine, RandomElasticDeformation, RandomFlip
+from torchio.transforms import OneOf, RandomAffine, RandomElasticDeformation, RandomFlip, RandomNoise
 
 
 # Load dataset
@@ -44,15 +44,16 @@ y_train = to_categorical(y_train, 5)
 
 # Data augmentations to be used
 transforms_dict = {
-    RandomFlip(): 1,
-    RandomElasticDeformation(): 1,
-    RandomAffine(): 1
+    RandomFlip(): 0.25,
+    RandomElasticDeformation(): 0.25,
+    RandomAffine(): 0.25,
+    RandomNoise(): 0.25
 }
 
-# Create transform, with a p chance to transform
-transform = OneOf(transforms_dict, p=0.9)
+# Create transform, with a p chance to apply augmentation
+transform = OneOf(transforms_dict, p=0.8)
 
-# Randomly augment all samples
+# Randomly augment all training data
 for i in range(len(x_train)):
 
     # Get ROI and adjust axes for augmentation
@@ -69,20 +70,23 @@ for i in range(len(x_train)):
     x_train[i] = result
 
 # Split train and test data
-x_train, x_test, y_train, y_test = train_test_split(x_train, y_train, test_size=0.1)
+x_train, x_test, y_train, y_test = train_test_split(x_train, y_train, test_size=0.1, stratify=y_train)
+x_train, x_val, y_train, y_val = train_test_split(x_train, y_train, test_size=0.1, stratify=y_train)
 
 # Train model
-model = load_model('model')
+model = load_model('trained')
 model.fit(x_train, y_train,
-    epochs=5,
+    epochs=10,
     validation_split=0.1,
+    validation_data=(x_val, y_val),
     batch_size=1)
-
-# Print out predictions
-predictions = model.predict(x_test)
-print('\n', predictions, '\n')
+# model.save('trained')
 
 # Predict for test data
+predictions = model.predict(x_test)
+
+# Print out predictions
+print('\n', predictions, '\n')
 correct = 0
 for i in range(len(y_test)):
     print('Test Data ', i, ': Prediction - ', np.argmax(predictions[i]), ' Correct: ', np.argmax(y_test[i]))

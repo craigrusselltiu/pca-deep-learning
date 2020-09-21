@@ -1,201 +1,294 @@
-E:\Craig\10_university\Units\2020 S1\ELEC4712\pca-deep-learning>python src/model.py
+E:\Craig\10_university\Units\2020 S1\ELEC4712\pca-deep-learning\src>python train.py
 Using TensorFlow backend.
-2020-09-08 05:31:13.345927: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'cudart64_101.dll'; dlerror: cudart64_101.dll not found
-2020-09-08 05:31:13.353302: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
-2020-09-08 05:31:15.664444: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'nvcuda.dll'; dlerror: nvcuda.dll not found
-2020-09-08 05:31:15.670817: E tensorflow/stream_executor/cuda/cuda_driver.cc:313] failed call to cuInit: UNKNOWN ERROR (303)
-2020-09-08 05:31:15.688598: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: Russell
-2020-09-08 05:31:15.703087: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: Russell
-2020-09-08 05:31:15.716001: I tensorflow/core/platform/cpu_feature_guard.cc:143] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
-2020-09-08 05:31:15.739717: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x1572e490920 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
-2020-09-08 05:31:15.745693: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
-Model: "sequential_1"
-_________________________________________________________________
-Layer (type)                 Output Shape              Param #
-=================================================================
-conv3d_1 (Conv3D)            (None, 40, 40, 4, 16)     448
-_________________________________________________________________
-max_pooling3d_1 (MaxPooling3 (None, 20, 20, 2, 16)     0
-_________________________________________________________________
-conv3d_2 (Conv3D)            (None, 20, 20, 2, 32)     13856
-_________________________________________________________________
-max_pooling3d_2 (MaxPooling3 (None, 10, 10, 1, 32)     0
-_________________________________________________________________
-flatten_1 (Flatten)          (None, 3200)              0
-_________________________________________________________________
-dense_1 (Dense)              (None, 256)               819456
-_________________________________________________________________
-dropout_1 (Dropout)          (None, 256)               0
-_________________________________________________________________
-dense_2 (Dense)              (None, 128)               32896
-_________________________________________________________________
-dropout_2 (Dropout)          (None, 128)               0
-_________________________________________________________________
-dense_3 (Dense)              (None, 5)                 645
-=================================================================
-Total params: 867,301
-Trainable params: 867,301
-Non-trainable params: 0
-_________________________________________________________________
+2020-09-22 04:29:32.712607: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'cudart64_101.dll'; dlerror: cudart64_101.dll not found
+2020-09-22 04:29:32.718991: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+C:\Users\Craig\AppData\Local\Programs\Python\Python37\lib\site-packages\dicom\__init__.py:53: UserWarning: 
+This code is using an older version of pydicom, which is no longer
+maintained as of Jan 2017.  You can access the new pydicom features and API
+by installing `pydicom` from PyPI.
+See 'Transitioning to pydicom 1.x' section at pydicom.readthedocs.org
+for more information.
 
-E:\Craig\10_university\Units\2020 S1\ELEC4712\pca-deep-learning>python src/train.py
-Using TensorFlow backend.
-2020-09-08 05:31:18.414651: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'cudart64_101.dll'; dlerror: cudart64_101.dll not found
-2020-09-08 05:31:18.420654: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
-0.054901960784313725
-2020-09-08 05:31:21.182571: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'nvcuda.dll'; dlerror: nvcuda.dll not found
-2020-09-08 05:31:21.187700: E tensorflow/stream_executor/cuda/cuda_driver.cc:313] failed call to cuInit: UNKNOWN ERROR (303)
-2020-09-08 05:31:21.199125: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: Russell
-2020-09-08 05:31:21.206208: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: Russell
-2020-09-08 05:31:21.215883: I tensorflow/core/platform/cpu_feature_guard.cc:143] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
-2020-09-08 05:31:21.234728: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x21b67e9e280 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
-2020-09-08 05:31:21.244422: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
-Train on 90 samples, validate on 10 samples
-Epoch 1/50
-90/90 [==============================] - 3s 33ms/step - loss: 1.5557 - accuracy: 0.2889 - val_loss: 1.2627 - val_accuracy: 0.4000
-Epoch 2/50
-90/90 [==============================] - 3s 30ms/step - loss: 1.4616 - accuracy: 0.4111 - val_loss: 1.3473 - val_accuracy: 0.5000
-Epoch 3/50
-90/90 [==============================] - 3s 31ms/step - loss: 1.4664 - accuracy: 0.3556 - val_loss: 1.3348 - val_accuracy: 0.5000
-Epoch 4/50
-90/90 [==============================] - 3s 30ms/step - loss: 1.4796 - accuracy: 0.2667 - val_loss: 1.3573 - val_accuracy: 0.5000
-Epoch 5/50
-90/90 [==============================] - 3s 30ms/step - loss: 1.4442 - accuracy: 0.3222 - val_loss: 1.3189 - val_accuracy: 0.5000
-Epoch 6/50
-90/90 [==============================] - 3s 30ms/step - loss: 1.4408 - accuracy: 0.4111 - val_loss: 1.2987 - val_accuracy: 0.5000
-Epoch 7/50
-90/90 [==============================] - 3s 30ms/step - loss: 1.5213 - accuracy: 0.3778 - val_loss: 1.3444 - val_accuracy: 0.4000
-Epoch 8/50
-90/90 [==============================] - 3s 30ms/step - loss: 1.4471 - accuracy: 0.3222 - val_loss: 1.3275 - val_accuracy: 0.5000
-Epoch 9/50
-90/90 [==============================] - 3s 30ms/step - loss: 1.4265 - accuracy: 0.3889 - val_loss: 1.3488 - val_accuracy: 0.5000
-Epoch 10/50
-90/90 [==============================] - 3s 30ms/step - loss: 1.4501 - accuracy: 0.3667 - val_loss: 1.3240 - val_accuracy: 0.5000
-Epoch 11/50
-90/90 [==============================] - 3s 30ms/step - loss: 1.4351 - accuracy: 0.3111 - val_loss: 1.2595 - val_accuracy: 0.5000
-Epoch 12/50
-90/90 [==============================] - 3s 30ms/step - loss: 1.4341 - accuracy: 0.3556 - val_loss: 1.3675 - val_accuracy: 0.4000
-Epoch 13/50
-90/90 [==============================] - 3s 30ms/step - loss: 1.4694 - accuracy: 0.4000 - val_loss: 1.3099 - val_accuracy: 0.5000
-Epoch 14/50
-90/90 [==============================] - 3s 30ms/step - loss: 1.4302 - accuracy: 0.3444 - val_loss: 1.2833 - val_accuracy: 0.5000
-Epoch 15/50
-90/90 [==============================] - 3s 30ms/step - loss: 1.4337 - accuracy: 0.3000 - val_loss: 1.3089 - val_accuracy: 0.5000
-Epoch 16/50
-90/90 [==============================] - 3s 32ms/step - loss: 1.4085 - accuracy: 0.3444 - val_loss: 1.2910 - val_accuracy: 0.5000
-Epoch 17/50
-90/90 [==============================] - 3s 31ms/step - loss: 1.4639 - accuracy: 0.3444 - val_loss: 1.3589 - val_accuracy: 0.3000
-Epoch 18/50
-90/90 [==============================] - 3s 30ms/step - loss: 1.4112 - accuracy: 0.3444 - val_loss: 1.3051 - val_accuracy: 0.7000
-Epoch 19/50
-90/90 [==============================] - 3s 30ms/step - loss: 1.3769 - accuracy: 0.4444 - val_loss: 1.3439 - val_accuracy: 0.5000
-Epoch 20/50
-90/90 [==============================] - 3s 30ms/step - loss: 1.3256 - accuracy: 0.4556 - val_loss: 1.3251 - val_accuracy: 0.6000
-Epoch 21/50
-90/90 [==============================] - 3s 31ms/step - loss: 1.3284 - accuracy: 0.4556 - val_loss: 1.4111 - val_accuracy: 0.3000
-Epoch 22/50
-90/90 [==============================] - 3s 31ms/step - loss: 1.2144 - accuracy: 0.4667 - val_loss: 1.6070 - val_accuracy: 0.6000
-Epoch 23/50
-90/90 [==============================] - 3s 34ms/step - loss: 1.2064 - accuracy: 0.4778 - val_loss: 1.6109 - val_accuracy: 0.3000
-Epoch 24/50
-90/90 [==============================] - 3s 30ms/step - loss: 1.1164 - accuracy: 0.5222 - val_loss: 1.8046 - val_accuracy: 0.1000
-Epoch 25/50
-90/90 [==============================] - 3s 30ms/step - loss: 1.0212 - accuracy: 0.6222 - val_loss: 1.9356 - val_accuracy: 0.3000
-Epoch 26/50
-90/90 [==============================] - 3s 30ms/step - loss: 0.7767 - accuracy: 0.7111 - val_loss: 1.9115 - val_accuracy: 0.2000
-Epoch 27/50
-90/90 [==============================] - 3s 30ms/step - loss: 0.6131 - accuracy: 0.7444 - val_loss: 2.6973 - val_accuracy: 0.2000
-Epoch 28/50
-90/90 [==============================] - 3s 30ms/step - loss: 0.3987 - accuracy: 0.9000 - val_loss: 3.8369 - val_accuracy: 0.1000
-Epoch 29/50
-90/90 [==============================] - 3s 30ms/step - loss: 0.3054 - accuracy: 0.8778 - val_loss: 6.7117 - val_accuracy: 0.1000
-Epoch 30/50
-90/90 [==============================] - 3s 30ms/step - loss: 0.2999 - accuracy: 0.9111 - val_loss: 4.9432 - val_accuracy: 0.0000e+00
-Epoch 31/50
-90/90 [==============================] - 3s 31ms/step - loss: 0.1086 - accuracy: 0.9667 - val_loss: 5.6301 - val_accuracy: 0.0000e+00
-Epoch 32/50
-90/90 [==============================] - 3s 31ms/step - loss: 0.1558 - accuracy: 0.9556 - val_loss: 6.1982 - val_accuracy: 0.0000e+00
-Epoch 33/50
-90/90 [==============================] - 3s 31ms/step - loss: 0.2619 - accuracy: 0.9111 - val_loss: 5.3149 - val_accuracy: 0.2000
-Epoch 34/50
-90/90 [==============================] - 3s 30ms/step - loss: 0.1919 - accuracy: 0.9556 - val_loss: 4.5983 - val_accuracy: 0.0000e+00
-Epoch 35/50
-90/90 [==============================] - 3s 32ms/step - loss: 0.0879 - accuracy: 0.9667 - val_loss: 7.2857 - val_accuracy: 0.0000e+00
-Epoch 36/50
-90/90 [==============================] - 3s 30ms/step - loss: 0.0401 - accuracy: 1.0000 - val_loss: 7.2759 - val_accuracy: 0.0000e+00
-Epoch 37/50
-90/90 [==============================] - 3s 30ms/step - loss: 0.1113 - accuracy: 0.9444 - val_loss: 5.9466 - val_accuracy: 0.1000
-Epoch 38/50
-90/90 [==============================] - 3s 31ms/step - loss: 0.0730 - accuracy: 0.9889 - val_loss: 7.7599 - val_accuracy: 0.1000
-Epoch 39/50
-90/90 [==============================] - 3s 34ms/step - loss: 0.1092 - accuracy: 0.9778 - val_loss: 6.5384 - val_accuracy: 0.1000
-Epoch 40/50
-90/90 [==============================] - 3s 34ms/step - loss: 0.0569 - accuracy: 0.9889 - val_loss: 9.2190 - val_accuracy: 0.1000
-Epoch 41/50
-90/90 [==============================] - 3s 33ms/step - loss: 0.0410 - accuracy: 0.9889 - val_loss: 9.1359 - val_accuracy: 0.0000e+00
-Epoch 42/50
-90/90 [==============================] - 3s 36ms/step - loss: 0.0093 - accuracy: 1.0000 - val_loss: 9.7178 - val_accuracy: 0.1000
-Epoch 43/50
-90/90 [==============================] - 3s 35ms/step - loss: 0.0189 - accuracy: 1.0000 - val_loss: 9.9089 - val_accuracy: 0.2000
-Epoch 44/50
-90/90 [==============================] - 3s 31ms/step - loss: 0.0527 - accuracy: 0.9889 - val_loss: 10.0878 - val_accuracy: 0.0000e+00
-Epoch 45/50
-90/90 [==============================] - 3s 33ms/step - loss: 0.0142 - accuracy: 1.0000 - val_loss: 11.5473 - val_accuracy: 0.0000e+00
-Epoch 46/50
-90/90 [==============================] - 3s 32ms/step - loss: 0.0075 - accuracy: 1.0000 - val_loss: 11.1956 - val_accuracy: 0.0000e+00
-Epoch 47/50
-90/90 [==============================] - 3s 31ms/step - loss: 0.0880 - accuracy: 0.9556 - val_loss: 7.1927 - val_accuracy: 0.2000
-Epoch 48/50
-90/90 [==============================] - 3s 30ms/step - loss: 0.0268 - accuracy: 0.9889 - val_loss: 8.0706 - val_accuracy: 0.1000
-Epoch 49/50
-90/90 [==============================] - 3s 30ms/step - loss: 0.0543 - accuracy: 0.9778 - val_loss: 7.6900 - val_accuracy: 0.0000e+00
-Epoch 50/50
-90/90 [==============================] - 3s 30ms/step - loss: 0.0902 - accuracy: 0.9889 - val_loss: 8.0947 - val_accuracy: 0.0000e+00
-[[3.30585241e-02 4.45238382e-01 1.22196615e-01 2.93269664e-01
-  1.06236868e-01]
- [4.34157401e-02 1.87820375e-01 5.38916051e-01 6.73867688e-02
-  1.62461087e-01]
- [3.46463583e-02 5.12698174e-01 4.37881380e-01 2.48759938e-03
-  1.22864926e-02]
- [3.52851828e-08 9.99903321e-01 9.67215237e-05 6.18760512e-12
-  5.00696595e-09]
- [1.81543897e-03 9.93098915e-01 4.25536744e-03 1.13465634e-04
-  7.16782350e-04]
- [3.54836484e-05 4.26820386e-03 1.21180001e-05 2.49105098e-04
-  9.95435059e-01]
- [2.80749821e-03 9.80606854e-01 4.10788751e-04 1.59190893e-02
-  2.55786901e-04]
- [8.17723051e-02 9.03439760e-01 5.41725785e-06 1.47822751e-02
-  3.41474021e-07]
- [1.71482060e-02 2.53080457e-01 7.67865181e-02 3.93975407e-01
-  2.59009451e-01]
- [9.99996424e-01 1.44946966e-06 1.36428673e-06 8.09235644e-07
-  8.83378370e-11]
- [8.48691096e-04 9.63199794e-01 7.06707640e-03 3.49591312e-04
-  2.85349041e-02]
- [4.73726779e-01 1.33992329e-01 3.92232746e-01 4.49778599e-05
-  3.16098476e-06]]
-Entry  0
-Prediction:  1  Correct:  1
-Entry  1
-Prediction:  2  Correct:  2
-Entry  2
-Prediction:  1  Correct:  4
-Entry  3
-Prediction:  1  Correct:  4
-Entry  4
-Prediction:  1  Correct:  0
-Entry  5
-Prediction:  4  Correct:  2
-Entry  6
-Prediction:  1  Correct:  2
-Entry  7
-Prediction:  1  Correct:  0
-Entry  8
-Prediction:  3  Correct:  0
-Entry  9
-Prediction:  0  Correct:  0
-Entry  10
-Prediction:  1  Correct:  1
-Entry  11
-Prediction:  0  Correct:  1
+  warnings.warn(msg)
+If you use TorchIO for your research, please cite the following paper:
+Pérez-García et al., TorchIO: a Python library for efficient loading,
+preprocessing, augmentation and patch-based sampling of medical images
+in deep learning. Credits instructions: https://torchio.readthedocs.io/#credits
+
+C:\Users\Craig\AppData\Local\Programs\Python\Python37\lib\site-packages\torchio\transforms\augmentation\spatial\random_elastic_deformation.py:215: RuntimeWarning: The maximum displacement is larger than the coarse grid spacing for dimensions: [0, 1, 2], so folding may occur. Choose fewer control points or a smaller maximum displacement
+  warnings.warn(message, RuntimeWarning)
+2020-09-22 04:29:45.538809: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'nvcuda.dll'; dlerror: nvcuda.dll not found
+2020-09-22 04:29:45.546098: E tensorflow/stream_executor/cuda/cuda_driver.cc:313] failed call to cuInit: UNKNOWN ERROR (303)
+2020-09-22 04:29:45.558615: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: Russell
+2020-09-22 04:29:45.565402: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: Russell
+2020-09-22 04:29:45.577322: I tensorflow/core/platform/cpu_feature_guard.cc:143] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
+2020-09-22 04:29:45.606563: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x286877cb2b0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-09-22 04:29:45.615644: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+Train on 1992 samples, validate on 222 samples
+Epoch 1/5
+1992/1992 [==============================] - 57s 28ms/step - loss: 1.6132 - accuracy: 0.2008 - val_loss: 1.6078 - val_accuracy: 0.2207
+Epoch 2/5
+1992/1992 [==============================] - 56s 28ms/step - loss: 1.6109 - accuracy: 0.2028 - val_loss: 1.5948 - val_accuracy: 0.2252
+Epoch 3/5
+1992/1992 [==============================] - 57s 29ms/step - loss: 1.6006 - accuracy: 0.2269 - val_loss: 1.5614 - val_accuracy: 0.2883
+Epoch 4/5
+1992/1992 [==============================] - 57s 29ms/step - loss: 1.5130 - accuracy: 0.3138 - val_loss: 1.4333 - val_accuracy: 0.3604
+Epoch 5/5
+1992/1992 [==============================] - 57s 28ms/step - loss: 1.4062 - accuracy: 0.3765 - val_loss: 1.3031 - val_accuracy: 0.3919
+
+ [[0.18363291 0.21799353 0.1888091  0.2477601  0.1618044 ]
+ [0.23823734 0.2958008  0.15258427 0.0901526  0.22322495]
+ [0.04834529 0.1098529  0.01052568 0.82997894 0.00129723]
+ ...
+ [0.18376018 0.2183982  0.18869235 0.24931718 0.15983203]
+ [0.15977676 0.33522636 0.13231501 0.10991739 0.26276445]
+ [0.13751525 0.1809603  0.0943007  0.52893376 0.05828993]]
+
+Test Data  0 : Prediction -  3  Correct:  3
+Test Data  1 : Prediction -  1  Correct:  1
+Test Data  2 : Prediction -  3  Correct:  3
+Test Data  3 : Prediction -  3  Correct:  4
+Test Data  4 : Prediction -  3  Correct:  3
+Test Data  5 : Prediction -  3  Correct:  0
+Test Data  6 : Prediction -  3  Correct:  0
+Test Data  7 : Prediction -  2  Correct:  0
+Test Data  8 : Prediction -  2  Correct:  2
+Test Data  9 : Prediction -  0  Correct:  0
+Test Data  10 : Prediction -  4  Correct:  4
+Test Data  11 : Prediction -  0  Correct:  2
+Test Data  12 : Prediction -  3  Correct:  0
+Test Data  13 : Prediction -  3  Correct:  4
+Test Data  14 : Prediction -  3  Correct:  3
+Test Data  15 : Prediction -  4  Correct:  4
+Test Data  16 : Prediction -  3  Correct:  3
+Test Data  17 : Prediction -  1  Correct:  1
+Test Data  18 : Prediction -  1  Correct:  3
+Test Data  19 : Prediction -  3  Correct:  4
+Test Data  20 : Prediction -  3  Correct:  0
+Test Data  21 : Prediction -  3  Correct:  3
+Test Data  22 : Prediction -  3  Correct:  4
+Test Data  23 : Prediction -  3  Correct:  4
+Test Data  24 : Prediction -  3  Correct:  3
+Test Data  25 : Prediction -  3  Correct:  3
+Test Data  26 : Prediction -  3  Correct:  1
+Test Data  27 : Prediction -  3  Correct:  4
+Test Data  28 : Prediction -  3  Correct:  4
+Test Data  29 : Prediction -  1  Correct:  1
+Test Data  30 : Prediction -  2  Correct:  2
+Test Data  31 : Prediction -  3  Correct:  0
+Test Data  32 : Prediction -  1  Correct:  4
+Test Data  33 : Prediction -  3  Correct:  3
+Test Data  34 : Prediction -  3  Correct:  1
+Test Data  35 : Prediction -  0  Correct:  2
+Test Data  36 : Prediction -  3  Correct:  2
+Test Data  37 : Prediction -  2  Correct:  2
+Test Data  38 : Prediction -  0  Correct:  0
+Test Data  39 : Prediction -  2  Correct:  2
+Test Data  40 : Prediction -  1  Correct:  1
+Test Data  41 : Prediction -  3  Correct:  2
+Test Data  42 : Prediction -  0  Correct:  2
+Test Data  43 : Prediction -  0  Correct:  2
+Test Data  44 : Prediction -  2  Correct:  1
+Test Data  45 : Prediction -  3  Correct:  4
+Test Data  46 : Prediction -  3  Correct:  0
+Test Data  47 : Prediction -  1  Correct:  3
+Test Data  48 : Prediction -  1  Correct:  4
+Test Data  49 : Prediction -  4  Correct:  4
+Test Data  50 : Prediction -  1  Correct:  0
+Test Data  51 : Prediction -  3  Correct:  1
+Test Data  52 : Prediction -  2  Correct:  1
+Test Data  53 : Prediction -  1  Correct:  1
+Test Data  54 : Prediction -  3  Correct:  0
+Test Data  55 : Prediction -  3  Correct:  3
+Test Data  56 : Prediction -  2  Correct:  4
+Test Data  57 : Prediction -  0  Correct:  0
+Test Data  58 : Prediction -  3  Correct:  0
+Test Data  59 : Prediction -  2  Correct:  1
+Test Data  60 : Prediction -  3  Correct:  3
+Test Data  61 : Prediction -  3  Correct:  1
+Test Data  62 : Prediction -  3  Correct:  4
+Test Data  63 : Prediction -  3  Correct:  1
+Test Data  64 : Prediction -  3  Correct:  4
+Test Data  65 : Prediction -  0  Correct:  0
+Test Data  66 : Prediction -  0  Correct:  0
+Test Data  67 : Prediction -  3  Correct:  3
+Test Data  68 : Prediction -  3  Correct:  0
+Test Data  69 : Prediction -  2  Correct:  1
+Test Data  70 : Prediction -  0  Correct:  2
+Test Data  71 : Prediction -  3  Correct:  4
+Test Data  72 : Prediction -  3  Correct:  4
+Test Data  73 : Prediction -  3  Correct:  1
+Test Data  74 : Prediction -  1  Correct:  4
+Test Data  75 : Prediction -  3  Correct:  2
+Test Data  76 : Prediction -  2  Correct:  2
+Test Data  77 : Prediction -  4  Correct:  4
+Test Data  78 : Prediction -  2  Correct:  2
+Test Data  79 : Prediction -  2  Correct:  0
+Test Data  80 : Prediction -  1  Correct:  2
+Test Data  81 : Prediction -  3  Correct:  2
+Test Data  82 : Prediction -  3  Correct:  0
+Test Data  83 : Prediction -  2  Correct:  4
+Test Data  84 : Prediction -  1  Correct:  3
+Test Data  85 : Prediction -  0  Correct:  0
+Test Data  86 : Prediction -  4  Correct:  4
+Test Data  87 : Prediction -  1  Correct:  1
+Test Data  88 : Prediction -  3  Correct:  2
+Test Data  89 : Prediction -  3  Correct:  2
+Test Data  90 : Prediction -  0  Correct:  2
+Test Data  91 : Prediction -  4  Correct:  4
+Test Data  92 : Prediction -  3  Correct:  3
+Test Data  93 : Prediction -  3  Correct:  1
+Test Data  94 : Prediction -  2  Correct:  2
+Test Data  95 : Prediction -  3  Correct:  3
+Test Data  96 : Prediction -  3  Correct:  3
+Test Data  97 : Prediction -  1  Correct:  2
+Test Data  98 : Prediction -  3  Correct:  1
+Test Data  99 : Prediction -  2  Correct:  2
+Test Data  100 : Prediction -  3  Correct:  1
+Test Data  101 : Prediction -  1  Correct:  0
+Test Data  102 : Prediction -  1  Correct:  2
+Test Data  103 : Prediction -  3  Correct:  1
+Test Data  104 : Prediction -  0  Correct:  0
+Test Data  105 : Prediction -  0  Correct:  0
+Test Data  106 : Prediction -  3  Correct:  3
+Test Data  107 : Prediction -  3  Correct:  1
+Test Data  108 : Prediction -  1  Correct:  1
+Test Data  109 : Prediction -  3  Correct:  1
+Test Data  110 : Prediction -  2  Correct:  2
+Test Data  111 : Prediction -  3  Correct:  1
+Test Data  112 : Prediction -  3  Correct:  3
+Test Data  113 : Prediction -  3  Correct:  4
+Test Data  114 : Prediction -  3  Correct:  3
+Test Data  115 : Prediction -  0  Correct:  1
+Test Data  116 : Prediction -  3  Correct:  2
+Test Data  117 : Prediction -  0  Correct:  0
+Test Data  118 : Prediction -  3  Correct:  0
+Test Data  119 : Prediction -  3  Correct:  3
+Test Data  120 : Prediction -  0  Correct:  1
+Test Data  121 : Prediction -  3  Correct:  0
+Test Data  122 : Prediction -  2  Correct:  2
+Test Data  123 : Prediction -  3  Correct:  3
+Test Data  124 : Prediction -  3  Correct:  3
+Test Data  125 : Prediction -  3  Correct:  2
+Test Data  126 : Prediction -  3  Correct:  1
+Test Data  127 : Prediction -  3  Correct:  3
+Test Data  128 : Prediction -  3  Correct:  1
+Test Data  129 : Prediction -  1  Correct:  2
+Test Data  130 : Prediction -  4  Correct:  4
+Test Data  131 : Prediction -  2  Correct:  0
+Test Data  132 : Prediction -  3  Correct:  0
+Test Data  133 : Prediction -  0  Correct:  0
+Test Data  134 : Prediction -  3  Correct:  1
+Test Data  135 : Prediction -  3  Correct:  2
+Test Data  136 : Prediction -  3  Correct:  3
+Test Data  137 : Prediction -  3  Correct:  2
+Test Data  138 : Prediction -  1  Correct:  1
+Test Data  139 : Prediction -  3  Correct:  2
+Test Data  140 : Prediction -  1  Correct:  4
+Test Data  141 : Prediction -  3  Correct:  4
+Test Data  142 : Prediction -  2  Correct:  1
+Test Data  143 : Prediction -  3  Correct:  0
+Test Data  144 : Prediction -  3  Correct:  4
+Test Data  145 : Prediction -  3  Correct:  0
+Test Data  146 : Prediction -  0  Correct:  1
+Test Data  147 : Prediction -  1  Correct:  0
+Test Data  148 : Prediction -  4  Correct:  4
+Test Data  149 : Prediction -  3  Correct:  4
+Test Data  150 : Prediction -  3  Correct:  3
+Test Data  151 : Prediction -  4  Correct:  4
+Test Data  152 : Prediction -  3  Correct:  3
+Test Data  153 : Prediction -  3  Correct:  3
+Test Data  154 : Prediction -  2  Correct:  2
+Test Data  155 : Prediction -  3  Correct:  3
+Test Data  156 : Prediction -  4  Correct:  4
+Test Data  157 : Prediction -  3  Correct:  2
+Test Data  158 : Prediction -  2  Correct:  0
+Test Data  159 : Prediction -  2  Correct:  2
+Test Data  160 : Prediction -  0  Correct:  1
+Test Data  161 : Prediction -  3  Correct:  2
+Test Data  162 : Prediction -  1  Correct:  0
+Test Data  163 : Prediction -  3  Correct:  0
+Test Data  164 : Prediction -  3  Correct:  3
+Test Data  165 : Prediction -  2  Correct:  0
+Test Data  166 : Prediction -  3  Correct:  3
+Test Data  167 : Prediction -  4  Correct:  4
+Test Data  168 : Prediction -  3  Correct:  1
+Test Data  169 : Prediction -  3  Correct:  3
+Test Data  170 : Prediction -  0  Correct:  2
+Test Data  171 : Prediction -  1  Correct:  4
+Test Data  172 : Prediction -  1  Correct:  3
+Test Data  173 : Prediction -  3  Correct:  1
+Test Data  174 : Prediction -  2  Correct:  4
+Test Data  175 : Prediction -  0  Correct:  2
+Test Data  176 : Prediction -  3  Correct:  2
+Test Data  177 : Prediction -  2  Correct:  2
+Test Data  178 : Prediction -  3  Correct:  0
+Test Data  179 : Prediction -  3  Correct:  1
+Test Data  180 : Prediction -  4  Correct:  4
+Test Data  181 : Prediction -  2  Correct:  3
+Test Data  182 : Prediction -  3  Correct:  2
+Test Data  183 : Prediction -  3  Correct:  0
+Test Data  184 : Prediction -  4  Correct:  4
+Test Data  185 : Prediction -  3  Correct:  3
+Test Data  186 : Prediction -  3  Correct:  1
+Test Data  187 : Prediction -  3  Correct:  0
+Test Data  188 : Prediction -  3  Correct:  3
+Test Data  189 : Prediction -  3  Correct:  1
+Test Data  190 : Prediction -  3  Correct:  1
+Test Data  191 : Prediction -  0  Correct:  1
+Test Data  192 : Prediction -  2  Correct:  2
+Test Data  193 : Prediction -  1  Correct:  4
+Test Data  194 : Prediction -  3  Correct:  3
+Test Data  195 : Prediction -  3  Correct:  2
+Test Data  196 : Prediction -  3  Correct:  4
+Test Data  197 : Prediction -  2  Correct:  4
+Test Data  198 : Prediction -  0  Correct:  1
+Test Data  199 : Prediction -  0  Correct:  2
+Test Data  200 : Prediction -  3  Correct:  0
+Test Data  201 : Prediction -  2  Correct:  2
+Test Data  202 : Prediction -  3  Correct:  0
+Test Data  203 : Prediction -  3  Correct:  0
+Test Data  204 : Prediction -  3  Correct:  2
+Test Data  205 : Prediction -  3  Correct:  0
+Test Data  206 : Prediction -  2  Correct:  0
+Test Data  207 : Prediction -  3  Correct:  0
+Test Data  208 : Prediction -  1  Correct:  0
+Test Data  209 : Prediction -  3  Correct:  3
+Test Data  210 : Prediction -  3  Correct:  4
+Test Data  211 : Prediction -  2  Correct:  4
+Test Data  212 : Prediction -  3  Correct:  3
+Test Data  213 : Prediction -  4  Correct:  4
+Test Data  214 : Prediction -  3  Correct:  1
+Test Data  215 : Prediction -  3  Correct:  4
+Test Data  216 : Prediction -  3  Correct:  1
+Test Data  217 : Prediction -  0  Correct:  0
+Test Data  218 : Prediction -  3  Correct:  0
+Test Data  219 : Prediction -  2  Correct:  3
+Test Data  220 : Prediction -  0  Correct:  2
+Test Data  221 : Prediction -  3  Correct:  4
+Test Data  222 : Prediction -  3  Correct:  3
+Test Data  223 : Prediction -  0  Correct:  1
+Test Data  224 : Prediction -  3  Correct:  3
+Test Data  225 : Prediction -  3  Correct:  0
+Test Data  226 : Prediction -  2  Correct:  4
+Test Data  227 : Prediction -  3  Correct:  0
+Test Data  228 : Prediction -  3  Correct:  3
+Test Data  229 : Prediction -  3  Correct:  2
+Test Data  230 : Prediction -  2  Correct:  4
+Test Data  231 : Prediction -  4  Correct:  2
+Test Data  232 : Prediction -  4  Correct:  4
+Test Data  233 : Prediction -  1  Correct:  0
+Test Data  234 : Prediction -  4  Correct:  1
+Test Data  235 : Prediction -  3  Correct:  3
+Test Data  236 : Prediction -  3  Correct:  1
+Test Data  237 : Prediction -  3  Correct:  1
+Test Data  238 : Prediction -  1  Correct:  2
+Test Data  239 : Prediction -  3  Correct:  4
+Test Data  240 : Prediction -  3  Correct:  1
+Test Data  241 : Prediction -  3  Correct:  3
+Test Data  242 : Prediction -  3  Correct:  3
+Test Data  243 : Prediction -  3  Correct:  3
+Test Data  244 : Prediction -  1  Correct:  1
+Test Data  245 : Prediction -  3  Correct:  3
+
+Test Accuracy:  0.3780487804878049

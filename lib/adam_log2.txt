@@ -1,0 +1,294 @@
+E:\Craig\10_university\Units\2020 S1\ELEC4712\pca-deep-learning\src>python train.py
+Using TensorFlow backend.
+2020-09-22 05:12:28.063463: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'cudart64_101.dll'; dlerror: cudart64_101.dll not found
+2020-09-22 05:12:28.070850: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+C:\Users\Craig\AppData\Local\Programs\Python\Python37\lib\site-packages\dicom\__init__.py:53: UserWarning: 
+This code is using an older version of pydicom, which is no longer
+maintained as of Jan 2017.  You can access the new pydicom features and API
+by installing `pydicom` from PyPI.
+See 'Transitioning to pydicom 1.x' section at pydicom.readthedocs.org
+for more information.
+
+  warnings.warn(msg)
+If you use TorchIO for your research, please cite the following paper:
+Pérez-García et al., TorchIO: a Python library for efficient loading,
+preprocessing, augmentation and patch-based sampling of medical images
+in deep learning. Credits instructions: https://torchio.readthedocs.io/#credits
+
+C:\Users\Craig\AppData\Local\Programs\Python\Python37\lib\site-packages\torchio\transforms\augmentation\spatial\random_elastic_deformation.py:215: RuntimeWarning: The maximum displacement is larger than the coarse grid spacing for dimensions: [0, 1, 2], so folding may occur. Choose fewer control points or a smaller maximum displacement
+  warnings.warn(message, RuntimeWarning)
+2020-09-22 05:12:37.783422: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'nvcuda.dll'; dlerror: nvcuda.dll not found
+2020-09-22 05:12:37.790557: E tensorflow/stream_executor/cuda/cuda_driver.cc:313] failed call to cuInit: UNKNOWN ERROR (303)
+2020-09-22 05:12:37.811735: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: Russell
+2020-09-22 05:12:37.821583: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: Russell
+2020-09-22 05:12:37.827211: I tensorflow/core/platform/cpu_feature_guard.cc:143] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
+2020-09-22 05:12:37.846750: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x286787b5eb0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-09-22 05:12:37.861486: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+Train on 1992 samples, validate on 222 samples
+Epoch 1/5
+1992/1992 [==============================] - 56s 28ms/step - loss: 1.6143 - accuracy: 0.2018 - val_loss: 1.6096 - val_accuracy: 0.2027
+Epoch 2/5
+1992/1992 [==============================] - 57s 29ms/step - loss: 1.6086 - accuracy: 0.2068 - val_loss: 1.6063 - val_accuracy: 0.2252
+Epoch 3/5
+1992/1992 [==============================] - 57s 29ms/step - loss: 1.5811 - accuracy: 0.2545 - val_loss: 1.5921 - val_accuracy: 0.2838
+Epoch 4/5
+1992/1992 [==============================] - 56s 28ms/step - loss: 1.4300 - accuracy: 0.3494 - val_loss: 1.2874 - val_accuracy: 0.4279
+Epoch 5/5
+1992/1992 [==============================] - 55s 28ms/step - loss: 1.1907 - accuracy: 0.4734 - val_loss: 1.1622 - val_accuracy: 0.4640
+
+ [[5.6693828e-01 1.5091522e-01 1.4134292e-01 8.2614854e-02 5.8188751e-02]
+ [2.0283271e-01 2.2667733e-01 2.2804934e-01 1.9325705e-01 1.4918357e-01]
+ [3.6520547e-01 1.6542846e-01 2.5512633e-01 9.8806508e-02 1.1543328e-01]
+ ...
+ [2.4406110e-01 2.4985470e-01 3.1728432e-01 6.6687256e-02 1.2211254e-01]
+ [2.1543640e-01 2.1344574e-01 1.9638963e-01 1.9802661e-01 1.7670165e-01]
+ [1.1528297e-03 2.0738412e-03 1.3758808e-03 9.9537498e-01 2.2489841e-05]]
+
+Test Data  0 : Prediction -  0  Correct:  0
+Test Data  1 : Prediction -  2  Correct:  2
+Test Data  2 : Prediction -  0  Correct:  0
+Test Data  3 : Prediction -  2  Correct:  1
+Test Data  4 : Prediction -  4  Correct:  4
+Test Data  5 : Prediction -  4  Correct:  4
+Test Data  6 : Prediction -  4  Correct:  4
+Test Data  7 : Prediction -  0  Correct:  0
+Test Data  8 : Prediction -  4  Correct:  3
+Test Data  9 : Prediction -  4  Correct:  4
+Test Data  10 : Prediction -  0  Correct:  3
+Test Data  11 : Prediction -  1  Correct:  1
+Test Data  12 : Prediction -  1  Correct:  2
+Test Data  13 : Prediction -  1  Correct:  0
+Test Data  14 : Prediction -  1  Correct:  1
+Test Data  15 : Prediction -  0  Correct:  4
+Test Data  16 : Prediction -  0  Correct:  2
+Test Data  17 : Prediction -  0  Correct:  2
+Test Data  18 : Prediction -  2  Correct:  2
+Test Data  19 : Prediction -  0  Correct:  4
+Test Data  20 : Prediction -  1  Correct:  3
+Test Data  21 : Prediction -  1  Correct:  4
+Test Data  22 : Prediction -  0  Correct:  2
+Test Data  23 : Prediction -  4  Correct:  4
+Test Data  24 : Prediction -  1  Correct:  1
+Test Data  25 : Prediction -  2  Correct:  2
+Test Data  26 : Prediction -  2  Correct:  2
+Test Data  27 : Prediction -  1  Correct:  1
+Test Data  28 : Prediction -  2  Correct:  0
+Test Data  29 : Prediction -  1  Correct:  0
+Test Data  30 : Prediction -  4  Correct:  0
+Test Data  31 : Prediction -  3  Correct:  3
+Test Data  32 : Prediction -  4  Correct:  4
+Test Data  33 : Prediction -  0  Correct:  4
+Test Data  34 : Prediction -  2  Correct:  2
+Test Data  35 : Prediction -  2  Correct:  1
+Test Data  36 : Prediction -  3  Correct:  3
+Test Data  37 : Prediction -  4  Correct:  0
+Test Data  38 : Prediction -  4  Correct:  4
+Test Data  39 : Prediction -  0  Correct:  1
+Test Data  40 : Prediction -  3  Correct:  3
+Test Data  41 : Prediction -  3  Correct:  3
+Test Data  42 : Prediction -  0  Correct:  4
+Test Data  43 : Prediction -  3  Correct:  1
+Test Data  44 : Prediction -  2  Correct:  0
+Test Data  45 : Prediction -  3  Correct:  1
+Test Data  46 : Prediction -  0  Correct:  0
+Test Data  47 : Prediction -  2  Correct:  1
+Test Data  48 : Prediction -  2  Correct:  2
+Test Data  49 : Prediction -  4  Correct:  4
+Test Data  50 : Prediction -  0  Correct:  1
+Test Data  51 : Prediction -  3  Correct:  3
+Test Data  52 : Prediction -  1  Correct:  2
+Test Data  53 : Prediction -  3  Correct:  3
+Test Data  54 : Prediction -  3  Correct:  3
+Test Data  55 : Prediction -  3  Correct:  3
+Test Data  56 : Prediction -  3  Correct:  3
+Test Data  57 : Prediction -  4  Correct:  0
+Test Data  58 : Prediction -  2  Correct:  2
+Test Data  59 : Prediction -  1  Correct:  3
+Test Data  60 : Prediction -  4  Correct:  4
+Test Data  61 : Prediction -  1  Correct:  1
+Test Data  62 : Prediction -  0  Correct:  0
+Test Data  63 : Prediction -  2  Correct:  3
+Test Data  64 : Prediction -  4  Correct:  2
+Test Data  65 : Prediction -  0  Correct:  2
+Test Data  66 : Prediction -  3  Correct:  3
+Test Data  67 : Prediction -  0  Correct:  2
+Test Data  68 : Prediction -  1  Correct:  1
+Test Data  69 : Prediction -  3  Correct:  3
+Test Data  70 : Prediction -  1  Correct:  2
+Test Data  71 : Prediction -  1  Correct:  4
+Test Data  72 : Prediction -  0  Correct:  4
+Test Data  73 : Prediction -  1  Correct:  1
+Test Data  74 : Prediction -  0  Correct:  1
+Test Data  75 : Prediction -  1  Correct:  3
+Test Data  76 : Prediction -  3  Correct:  3
+Test Data  77 : Prediction -  4  Correct:  4
+Test Data  78 : Prediction -  4  Correct:  4
+Test Data  79 : Prediction -  0  Correct:  2
+Test Data  80 : Prediction -  4  Correct:  4
+Test Data  81 : Prediction -  3  Correct:  3
+Test Data  82 : Prediction -  0  Correct:  1
+Test Data  83 : Prediction -  3  Correct:  3
+Test Data  84 : Prediction -  4  Correct:  4
+Test Data  85 : Prediction -  0  Correct:  1
+Test Data  86 : Prediction -  0  Correct:  1
+Test Data  87 : Prediction -  0  Correct:  0
+Test Data  88 : Prediction -  4  Correct:  4
+Test Data  89 : Prediction -  1  Correct:  0
+Test Data  90 : Prediction -  0  Correct:  0
+Test Data  91 : Prediction -  4  Correct:  0
+Test Data  92 : Prediction -  3  Correct:  3
+Test Data  93 : Prediction -  2  Correct:  2
+Test Data  94 : Prediction -  1  Correct:  2
+Test Data  95 : Prediction -  0  Correct:  1
+Test Data  96 : Prediction -  3  Correct:  3
+Test Data  97 : Prediction -  1  Correct:  1
+Test Data  98 : Prediction -  4  Correct:  4
+Test Data  99 : Prediction -  1  Correct:  1
+Test Data  100 : Prediction -  4  Correct:  4
+Test Data  101 : Prediction -  0  Correct:  4
+Test Data  102 : Prediction -  1  Correct:  1
+Test Data  103 : Prediction -  1  Correct:  3
+Test Data  104 : Prediction -  3  Correct:  3
+Test Data  105 : Prediction -  3  Correct:  3
+Test Data  106 : Prediction -  2  Correct:  1
+Test Data  107 : Prediction -  3  Correct:  3
+Test Data  108 : Prediction -  0  Correct:  0
+Test Data  109 : Prediction -  1  Correct:  0
+Test Data  110 : Prediction -  0  Correct:  0
+Test Data  111 : Prediction -  3  Correct:  1
+Test Data  112 : Prediction -  0  Correct:  1
+Test Data  113 : Prediction -  3  Correct:  1
+Test Data  114 : Prediction -  2  Correct:  2
+Test Data  115 : Prediction -  0  Correct:  2
+Test Data  116 : Prediction -  0  Correct:  4
+Test Data  117 : Prediction -  0  Correct:  0
+Test Data  118 : Prediction -  0  Correct:  0
+Test Data  119 : Prediction -  2  Correct:  0
+Test Data  120 : Prediction -  1  Correct:  1
+Test Data  121 : Prediction -  4  Correct:  4
+Test Data  122 : Prediction -  1  Correct:  2
+Test Data  123 : Prediction -  1  Correct:  2
+Test Data  124 : Prediction -  0  Correct:  4
+Test Data  125 : Prediction -  0  Correct:  1
+Test Data  126 : Prediction -  0  Correct:  1
+Test Data  127 : Prediction -  2  Correct:  2
+Test Data  128 : Prediction -  0  Correct:  4
+Test Data  129 : Prediction -  0  Correct:  0
+Test Data  130 : Prediction -  0  Correct:  0
+Test Data  131 : Prediction -  4  Correct:  4
+Test Data  132 : Prediction -  4  Correct:  3
+Test Data  133 : Prediction -  4  Correct:  4
+Test Data  134 : Prediction -  4  Correct:  1
+Test Data  135 : Prediction -  1  Correct:  2
+Test Data  136 : Prediction -  2  Correct:  0
+Test Data  137 : Prediction -  4  Correct:  4
+Test Data  138 : Prediction -  3  Correct:  3
+Test Data  139 : Prediction -  4  Correct:  4
+Test Data  140 : Prediction -  4  Correct:  4
+Test Data  141 : Prediction -  1  Correct:  0
+Test Data  142 : Prediction -  4  Correct:  0
+Test Data  143 : Prediction -  0  Correct:  0
+Test Data  144 : Prediction -  4  Correct:  4
+Test Data  145 : Prediction -  0  Correct:  2
+Test Data  146 : Prediction -  2  Correct:  2
+Test Data  147 : Prediction -  1  Correct:  4
+Test Data  148 : Prediction -  2  Correct:  0
+Test Data  149 : Prediction -  1  Correct:  2
+Test Data  150 : Prediction -  4  Correct:  4
+Test Data  151 : Prediction -  3  Correct:  3
+Test Data  152 : Prediction -  3  Correct:  3
+Test Data  153 : Prediction -  2  Correct:  0
+Test Data  154 : Prediction -  1  Correct:  1
+Test Data  155 : Prediction -  4  Correct:  4
+Test Data  156 : Prediction -  2  Correct:  2
+Test Data  157 : Prediction -  3  Correct:  1
+Test Data  158 : Prediction -  3  Correct:  3
+Test Data  159 : Prediction -  3  Correct:  3
+Test Data  160 : Prediction -  1  Correct:  1
+Test Data  161 : Prediction -  0  Correct:  1
+Test Data  162 : Prediction -  3  Correct:  3
+Test Data  163 : Prediction -  0  Correct:  0
+Test Data  164 : Prediction -  4  Correct:  4
+Test Data  165 : Prediction -  3  Correct:  3
+Test Data  166 : Prediction -  0  Correct:  0
+Test Data  167 : Prediction -  3  Correct:  2
+Test Data  168 : Prediction -  1  Correct:  0
+Test Data  169 : Prediction -  4  Correct:  4
+Test Data  170 : Prediction -  0  Correct:  0
+Test Data  171 : Prediction -  1  Correct:  4
+Test Data  172 : Prediction -  0  Correct:  0
+Test Data  173 : Prediction -  0  Correct:  0
+Test Data  174 : Prediction -  2  Correct:  2
+Test Data  175 : Prediction -  1  Correct:  2
+Test Data  176 : Prediction -  2  Correct:  2
+Test Data  177 : Prediction -  1  Correct:  0
+Test Data  178 : Prediction -  2  Correct:  1
+Test Data  179 : Prediction -  1  Correct:  1
+Test Data  180 : Prediction -  3  Correct:  3
+Test Data  181 : Prediction -  1  Correct:  2
+Test Data  182 : Prediction -  2  Correct:  2
+Test Data  183 : Prediction -  0  Correct:  2
+Test Data  184 : Prediction -  4  Correct:  0
+Test Data  185 : Prediction -  0  Correct:  0
+Test Data  186 : Prediction -  0  Correct:  0
+Test Data  187 : Prediction -  1  Correct:  4
+Test Data  188 : Prediction -  1  Correct:  0
+Test Data  189 : Prediction -  2  Correct:  1
+Test Data  190 : Prediction -  3  Correct:  3
+Test Data  191 : Prediction -  3  Correct:  3
+Test Data  192 : Prediction -  1  Correct:  1
+Test Data  193 : Prediction -  2  Correct:  2
+Test Data  194 : Prediction -  1  Correct:  2
+Test Data  195 : Prediction -  2  Correct:  1
+Test Data  196 : Prediction -  0  Correct:  0
+Test Data  197 : Prediction -  0  Correct:  2
+Test Data  198 : Prediction -  0  Correct:  0
+Test Data  199 : Prediction -  2  Correct:  2
+Test Data  200 : Prediction -  1  Correct:  1
+Test Data  201 : Prediction -  3  Correct:  3
+Test Data  202 : Prediction -  1  Correct:  1
+Test Data  203 : Prediction -  4  Correct:  4
+Test Data  204 : Prediction -  3  Correct:  3
+Test Data  205 : Prediction -  4  Correct:  2
+Test Data  206 : Prediction -  3  Correct:  3
+Test Data  207 : Prediction -  3  Correct:  3
+Test Data  208 : Prediction -  4  Correct:  4
+Test Data  209 : Prediction -  1  Correct:  0
+Test Data  210 : Prediction -  0  Correct:  4
+Test Data  211 : Prediction -  0  Correct:  2
+Test Data  212 : Prediction -  3  Correct:  3
+Test Data  213 : Prediction -  2  Correct:  0
+Test Data  214 : Prediction -  1  Correct:  0
+Test Data  215 : Prediction -  1  Correct:  2
+Test Data  216 : Prediction -  1  Correct:  3
+Test Data  217 : Prediction -  2  Correct:  2
+Test Data  218 : Prediction -  4  Correct:  4
+Test Data  219 : Prediction -  3  Correct:  3
+Test Data  220 : Prediction -  2  Correct:  1
+Test Data  221 : Prediction -  0  Correct:  0
+Test Data  222 : Prediction -  1  Correct:  3
+Test Data  223 : Prediction -  2  Correct:  2
+Test Data  224 : Prediction -  0  Correct:  1
+Test Data  225 : Prediction -  2  Correct:  2
+Test Data  226 : Prediction -  3  Correct:  3
+Test Data  227 : Prediction -  3  Correct:  3
+Test Data  228 : Prediction -  4  Correct:  0
+Test Data  229 : Prediction -  0  Correct:  4
+Test Data  230 : Prediction -  1  Correct:  1
+Test Data  231 : Prediction -  1  Correct:  1
+Test Data  232 : Prediction -  0  Correct:  1
+Test Data  233 : Prediction -  4  Correct:  4
+Test Data  234 : Prediction -  2  Correct:  2
+Test Data  235 : Prediction -  0  Correct:  4
+Test Data  236 : Prediction -  0  Correct:  0
+Test Data  237 : Prediction -  4  Correct:  4
+Test Data  238 : Prediction -  4  Correct:  1
+Test Data  239 : Prediction -  2  Correct:  3
+Test Data  240 : Prediction -  4  Correct:  4
+Test Data  241 : Prediction -  2  Correct:  2
+Test Data  242 : Prediction -  2  Correct:  2
+Test Data  243 : Prediction -  2  Correct:  1
+Test Data  244 : Prediction -  0  Correct:  1
+Test Data  245 : Prediction -  3  Correct:  3
+
+Test Accuracy:  0.5609756097560976
