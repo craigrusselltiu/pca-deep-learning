@@ -12,8 +12,8 @@ from torchio.transforms import OneOf, Compose, RandomAffine, RandomElasticDeform
 
 # Config (move to config file later)
 train = True
-load = 'base_64'
-save = 'trained_base_64'
+load = 'base_256'
+save = 'trained_base_256'
 eps = 50
 
 # Load dataset

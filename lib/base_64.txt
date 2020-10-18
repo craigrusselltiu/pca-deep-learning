@@ -1,0 +1,727 @@
+E:\Craig\10_university\Units\2020 S1\ELEC4712\pca-deep-learning\src>python train.py
+Using TensorFlow backend.
+2020-10-18 20:36:04.540464: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'cudart64_101.dll'; dlerror: cudart64_101.dll not found
+2020-10-18 20:36:04.546168: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+C:\Users\Craig\AppData\Local\Programs\Python\Python37\lib\site-packages\dicom\__init__.py:53: UserWarning: 
+This code is using an older version of pydicom, which is no longer
+maintained as of Jan 2017.  You can access the new pydicom features and API
+by installing `pydicom` from PyPI.
+See 'Transitioning to pydicom 1.x' section at pydicom.readthedocs.org
+for more information.
+
+  warnings.warn(msg)
+If you use TorchIO for your research, please cite the following paper:
+Pérez-García et al., TorchIO: a Python library for efficient loading,
+preprocessing, augmentation and patch-based sampling of medical images
+in deep learning. Credits instructions: https://torchio.readthedocs.io/#credits
+
+C:\Users\Craig\AppData\Local\Programs\Python\Python37\lib\site-packages\torchio\transforms\augmentation\spatial\random_elastic_deformation.py:215: RuntimeWarning: The maximum displacement is larger than the coarse grid spacing for dimensions: [0, 1, 2], so folding may occur. Choose fewer control points or a smaller maximum displacement
+  warnings.warn(message, RuntimeWarning)
+2020-10-18 20:36:18.267179: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'nvcuda.dll'; dlerror: nvcuda.dll not found
+2020-10-18 20:36:18.274267: E tensorflow/stream_executor/cuda/cuda_driver.cc:313] failed call to cuInit: UNKNOWN ERROR (303)
+2020-10-18 20:36:18.287178: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: Russell
+2020-10-18 20:36:18.305206: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: Russell
+2020-10-18 20:36:18.309368: I tensorflow/core/platform/cpu_feature_guard.cc:143] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
+2020-10-18 20:36:18.331492: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x21bd06bc190 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-10-18 20:36:18.347011: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+Train on 1992 samples, validate on 222 samples
+Epoch 1/50
+1992/1992 [==============================] - 54s 27ms/step - loss: 1.6144 - accuracy: 0.1872 - val_loss: 1.6098 - val_accuracy: 0.1982
+Epoch 2/50
+1992/1992 [==============================] - 52s 26ms/step - loss: 1.6146 - accuracy: 0.2013 - val_loss: 1.6100 - val_accuracy: 0.1982
+Epoch 3/50
+1992/1992 [==============================] - 52s 26ms/step - loss: 1.6108 - accuracy: 0.2008 - val_loss: 1.6105 - val_accuracy: 0.1982
+Epoch 4/50
+1992/1992 [==============================] - 52s 26ms/step - loss: 1.6138 - accuracy: 0.1973 - val_loss: 1.6097 - val_accuracy: 0.1982
+Epoch 5/50
+1992/1992 [==============================] - 53s 26ms/step - loss: 1.6112 - accuracy: 0.1938 - val_loss: 1.6097 - val_accuracy: 0.2027
+Epoch 6/50
+1992/1992 [==============================] - 52s 26ms/step - loss: 1.6111 - accuracy: 0.1953 - val_loss: 1.6096 - val_accuracy: 0.1982
+Epoch 7/50
+1992/1992 [==============================] - 52s 26ms/step - loss: 1.6109 - accuracy: 0.1842 - val_loss: 1.6100 - val_accuracy: 0.1982
+Epoch 8/50
+1992/1992 [==============================] - 52s 26ms/step - loss: 1.6157 - accuracy: 0.1943 - val_loss: 1.6096 - val_accuracy: 0.1982
+Epoch 9/50
+1992/1992 [==============================] - 52s 26ms/step - loss: 1.6075 - accuracy: 0.2023 - val_loss: 1.6097 - val_accuracy: 0.1982
+Epoch 10/50
+1992/1992 [==============================] - 52s 26ms/step - loss: 1.6092 - accuracy: 0.1943 - val_loss: 1.6096 - val_accuracy: 0.2027
+Epoch 11/50
+1992/1992 [==============================] - 52s 26ms/step - loss: 1.6051 - accuracy: 0.2179 - val_loss: 1.6095 - val_accuracy: 0.1982
+Epoch 12/50
+1992/1992 [==============================] - 52s 26ms/step - loss: 1.6075 - accuracy: 0.1983 - val_loss: 1.6096 - val_accuracy: 0.1982
+Epoch 13/50
+1992/1992 [==============================] - 52s 26ms/step - loss: 1.5987 - accuracy: 0.2053 - val_loss: 1.6100 - val_accuracy: 0.1982
+Epoch 14/50
+1992/1992 [==============================] - 52s 26ms/step - loss: 1.5984 - accuracy: 0.1923 - val_loss: 1.6100 - val_accuracy: 0.2027
+Epoch 15/50
+1992/1992 [==============================] - 52s 26ms/step - loss: 1.5902 - accuracy: 0.2169 - val_loss: 1.6109 - val_accuracy: 0.1982
+Epoch 16/50
+1992/1992 [==============================] - 52s 26ms/step - loss: 1.5874 - accuracy: 0.2123 - val_loss: 1.6106 - val_accuracy: 0.2027
+Epoch 17/50
+1992/1992 [==============================] - 52s 26ms/step - loss: 1.5807 - accuracy: 0.2189 - val_loss: 1.6106 - val_accuracy: 0.1982
+Epoch 18/50
+1992/1992 [==============================] - 52s 26ms/step - loss: 1.5748 - accuracy: 0.2249 - val_loss: 1.6096 - val_accuracy: 0.2027
+Epoch 19/50
+1992/1992 [==============================] - 52s 26ms/step - loss: 1.5660 - accuracy: 0.2364 - val_loss: 1.6097 - val_accuracy: 0.1982
+Epoch 20/50
+1992/1992 [==============================] - 54s 27ms/step - loss: 1.5494 - accuracy: 0.2374 - val_loss: 1.6098 - val_accuracy: 0.1982
+Epoch 21/50
+1992/1992 [==============================] - 53s 27ms/step - loss: 1.5372 - accuracy: 0.2284 - val_loss: 1.6102 - val_accuracy: 0.1982
+Epoch 22/50
+1992/1992 [==============================] - 52s 26ms/step - loss: 1.5376 - accuracy: 0.2515 - val_loss: 1.6119 - val_accuracy: 0.1982
+Epoch 23/50
+1992/1992 [==============================] - 52s 26ms/step - loss: 1.5124 - accuracy: 0.2595 - val_loss: 1.6025 - val_accuracy: 0.2793
+Epoch 24/50
+1992/1992 [==============================] - 53s 26ms/step - loss: 1.5045 - accuracy: 0.2671 - val_loss: 1.5943 - val_accuracy: 0.2027
+Epoch 25/50
+1992/1992 [==============================] - 53s 26ms/step - loss: 1.4877 - accuracy: 0.2947 - val_loss: 1.5857 - val_accuracy: 0.2883
+Epoch 26/50
+1992/1992 [==============================] - 52s 26ms/step - loss: 1.4631 - accuracy: 0.3052 - val_loss: 1.5232 - val_accuracy: 0.3018
+Epoch 27/50
+1992/1992 [==============================] - 53s 26ms/step - loss: 1.4246 - accuracy: 0.3454 - val_loss: 1.4716 - val_accuracy: 0.3423
+Epoch 28/50
+1992/1992 [==============================] - 53s 27ms/step - loss: 1.3434 - accuracy: 0.4016 - val_loss: 1.2529 - val_accuracy: 0.4955
+Epoch 29/50
+1992/1992 [==============================] - 52s 26ms/step - loss: 1.2609 - accuracy: 0.4749 - val_loss: 1.0858 - val_accuracy: 0.5721
+Epoch 30/50
+1992/1992 [==============================] - 55s 28ms/step - loss: 1.1269 - accuracy: 0.5392 - val_loss: 0.9519 - val_accuracy: 0.6171
+Epoch 31/50
+1992/1992 [==============================] - 55s 27ms/step - loss: 1.0457 - accuracy: 0.5773 - val_loss: 0.7968 - val_accuracy: 0.6712
+Epoch 32/50
+1992/1992 [==============================] - 53s 27ms/step - loss: 0.9881 - accuracy: 0.6084 - val_loss: 0.6811 - val_accuracy: 0.7117
+Epoch 33/50
+1992/1992 [==============================] - 52s 26ms/step - loss: 0.8654 - accuracy: 0.6637 - val_loss: 0.6583 - val_accuracy: 0.7613
+Epoch 34/50
+1992/1992 [==============================] - 52s 26ms/step - loss: 0.8274 - accuracy: 0.6883 - val_loss: 0.5954 - val_accuracy: 0.7252
+Epoch 35/50
+1992/1992 [==============================] - 53s 27ms/step - loss: 0.7762 - accuracy: 0.7159 - val_loss: 0.4708 - val_accuracy: 0.8243
+Epoch 36/50
+1992/1992 [==============================] - 52s 26ms/step - loss: 0.6627 - accuracy: 0.7369 - val_loss: 0.4705 - val_accuracy: 0.8243
+Epoch 37/50
+1992/1992 [==============================] - 53s 27ms/step - loss: 0.6529 - accuracy: 0.7590 - val_loss: 0.4265 - val_accuracy: 0.8243
+Epoch 38/50
+1992/1992 [==============================] - 55s 28ms/step - loss: 0.5638 - accuracy: 0.7922 - val_loss: 0.3857 - val_accuracy: 0.8423
+Epoch 39/50
+1992/1992 [==============================] - 53s 26ms/step - loss: 0.5614 - accuracy: 0.7927 - val_loss: 0.3174 - val_accuracy: 0.8919
+Epoch 40/50
+1992/1992 [==============================] - 53s 26ms/step - loss: 0.5106 - accuracy: 0.8243 - val_loss: 0.3481 - val_accuracy: 0.8694
+Epoch 41/50
+1992/1992 [==============================] - 52s 26ms/step - loss: 0.4698 - accuracy: 0.8404 - val_loss: 0.2876 - val_accuracy: 0.9099
+Epoch 42/50
+1992/1992 [==============================] - 52s 26ms/step - loss: 0.4795 - accuracy: 0.8389 - val_loss: 0.3085 - val_accuracy: 0.8649
+Epoch 43/50
+1992/1992 [==============================] - 53s 26ms/step - loss: 0.3955 - accuracy: 0.8604 - val_loss: 0.2648 - val_accuracy: 0.9054
+Epoch 44/50
+1992/1992 [==============================] - 54s 27ms/step - loss: 0.3934 - accuracy: 0.8700 - val_loss: 0.2593 - val_accuracy: 0.9009
+Epoch 45/50
+1992/1992 [==============================] - 52s 26ms/step - loss: 0.4075 - accuracy: 0.8609 - val_loss: 0.2725 - val_accuracy: 0.8919
+Epoch 46/50
+1992/1992 [==============================] - 53s 26ms/step - loss: 0.3643 - accuracy: 0.8800 - val_loss: 0.2778 - val_accuracy: 0.8964
+Epoch 47/50
+1992/1992 [==============================] - 53s 26ms/step - loss: 0.3631 - accuracy: 0.8785 - val_loss: 0.2083 - val_accuracy: 0.8964
+Epoch 48/50
+1992/1992 [==============================] - 53s 27ms/step - loss: 0.3703 - accuracy: 0.8785 - val_loss: 0.2375 - val_accuracy: 0.8919
+Epoch 49/50
+1992/1992 [==============================] - 52s 26ms/step - loss: 0.3183 - accuracy: 0.8981 - val_loss: 0.2130 - val_accuracy: 0.9144
+Epoch 50/50
+1992/1992 [==============================] - 52s 26ms/step - loss: 0.3820 - accuracy: 0.8916 - val_loss: 0.2413 - val_accuracy: 0.8919
+
+ [[1.4541456e-07 9.9999332e-01 6.5423765e-06 1.4561851e-17 5.8285946e-16]
+ [1.6531225e-05 6.9621387e-06 5.5980433e-07 7.4328278e-07 9.9997520e-01]
+ [3.8634342e-05 7.3140029e-05 1.2045606e-07 9.9988687e-01 1.1961041e-06]
+ ...
+ [9.9999034e-01 8.4126750e-06 1.2040221e-06 5.0010797e-14 5.7994158e-11]
+ [9.3013807e-07 6.0900632e-08 8.5190965e-11 1.7552793e-09 9.9999905e-01]
+ [1.8244352e-02 9.4432491e-01 3.5241932e-02 4.8875449e-06 2.1840034e-03]] 
+
+Entry Number | Prediction | Actual
+Entry 0 | Prediction: 1 | Correct: 1
+Entry 1 | Prediction: 4 | Correct: 4
+Entry 2 | Prediction: 3 | Correct: 3
+Entry 3 | Prediction: 1 | Correct: 1
+Entry 4 | Prediction: 2 | Correct: 0
+Entry 5 | Prediction: 4 | Correct: 4
+Entry 6 | Prediction: 4 | Correct: 4
+Entry 7 | Prediction: 2 | Correct: 2
+Entry 8 | Prediction: 3 | Correct: 3
+Entry 9 | Prediction: 1 | Correct: 1
+Entry 10 | Prediction: 2 | Correct: 2
+Entry 11 | Prediction: 4 | Correct: 4
+Entry 12 | Prediction: 2 | Correct: 2
+Entry 13 | Prediction: 3 | Correct: 3
+Entry 14 | Prediction: 0 | Correct: 0
+Entry 15 | Prediction: 4 | Correct: 4
+Entry 16 | Prediction: 3 | Correct: 3
+Entry 17 | Prediction: 0 | Correct: 0
+Entry 18 | Prediction: 3 | Correct: 3
+Entry 19 | Prediction: 3 | Correct: 3
+Entry 20 | Prediction: 3 | Correct: 3
+Entry 21 | Prediction: 2 | Correct: 2
+Entry 22 | Prediction: 2 | Correct: 2
+Entry 23 | Prediction: 2 | Correct: 2
+Entry 24 | Prediction: 0 | Correct: 0
+Entry 25 | Prediction: 3 | Correct: 3
+Entry 26 | Prediction: 3 | Correct: 3
+Entry 27 | Prediction: 1 | Correct: 1
+Entry 28 | Prediction: 0 | Correct: 0
+Entry 29 | Prediction: 2 | Correct: 2
+Entry 30 | Prediction: 2 | Correct: 2
+Entry 31 | Prediction: 2 | Correct: 0
+Entry 32 | Prediction: 1 | Correct: 1
+Entry 33 | Prediction: 4 | Correct: 4
+Entry 34 | Prediction: 4 | Correct: 4
+Entry 35 | Prediction: 1 | Correct: 1
+Entry 36 | Prediction: 0 | Correct: 0
+Entry 37 | Prediction: 1 | Correct: 1
+Entry 38 | Prediction: 1 | Correct: 1
+Entry 39 | Prediction: 3 | Correct: 3
+Entry 40 | Prediction: 4 | Correct: 4
+Entry 41 | Prediction: 3 | Correct: 3
+Entry 42 | Prediction: 1 | Correct: 1
+Entry 43 | Prediction: 3 | Correct: 3
+Entry 44 | Prediction: 3 | Correct: 3
+Entry 45 | Prediction: 4 | Correct: 4
+Entry 46 | Prediction: 0 | Correct: 0
+Entry 47 | Prediction: 3 | Correct: 0
+Entry 48 | Prediction: 2 | Correct: 2
+Entry 49 | Prediction: 1 | Correct: 1
+Entry 50 | Prediction: 4 | Correct: 4
+Entry 51 | Prediction: 4 | Correct: 4
+Entry 52 | Prediction: 3 | Correct: 3
+Entry 53 | Prediction: 0 | Correct: 0
+Entry 54 | Prediction: 1 | Correct: 1
+Entry 55 | Prediction: 2 | Correct: 2
+Entry 56 | Prediction: 0 | Correct: 0
+Entry 57 | Prediction: 0 | Correct: 0
+Entry 58 | Prediction: 1 | Correct: 1
+Entry 59 | Prediction: 2 | Correct: 1
+Entry 60 | Prediction: 0 | Correct: 0
+Entry 61 | Prediction: 2 | Correct: 2
+Entry 62 | Prediction: 2 | Correct: 2
+Entry 63 | Prediction: 0 | Correct: 0
+Entry 64 | Prediction: 4 | Correct: 0
+Entry 65 | Prediction: 3 | Correct: 3
+Entry 66 | Prediction: 2 | Correct: 2
+Entry 67 | Prediction: 4 | Correct: 4
+Entry 68 | Prediction: 2 | Correct: 2
+Entry 69 | Prediction: 0 | Correct: 1
+Entry 70 | Prediction: 0 | Correct: 0
+Entry 71 | Prediction: 3 | Correct: 3
+Entry 72 | Prediction: 3 | Correct: 3
+Entry 73 | Prediction: 0 | Correct: 0
+Entry 74 | Prediction: 1 | Correct: 1
+Entry 75 | Prediction: 3 | Correct: 3
+Entry 76 | Prediction: 3 | Correct: 3
+Entry 77 | Prediction: 3 | Correct: 3
+Entry 78 | Prediction: 0 | Correct: 0
+Entry 79 | Prediction: 2 | Correct: 2
+Entry 80 | Prediction: 3 | Correct: 3
+Entry 81 | Prediction: 3 | Correct: 3
+Entry 82 | Prediction: 0 | Correct: 0
+Entry 83 | Prediction: 3 | Correct: 3
+Entry 84 | Prediction: 2 | Correct: 2
+Entry 85 | Prediction: 4 | Correct: 4
+Entry 86 | Prediction: 4 | Correct: 4
+Entry 87 | Prediction: 3 | Correct: 3
+Entry 88 | Prediction: 2 | Correct: 2
+Entry 89 | Prediction: 1 | Correct: 1
+Entry 90 | Prediction: 2 | Correct: 2
+Entry 91 | Prediction: 4 | Correct: 4
+Entry 92 | Prediction: 3 | Correct: 3
+Entry 93 | Prediction: 2 | Correct: 2
+Entry 94 | Prediction: 1 | Correct: 1
+Entry 95 | Prediction: 0 | Correct: 0
+Entry 96 | Prediction: 3 | Correct: 3
+Entry 97 | Prediction: 3 | Correct: 3
+Entry 98 | Prediction: 2 | Correct: 2
+Entry 99 | Prediction: 2 | Correct: 2
+Entry 100 | Prediction: 4 | Correct: 4
+Entry 101 | Prediction: 2 | Correct: 1
+Entry 102 | Prediction: 4 | Correct: 4
+Entry 103 | Prediction: 1 | Correct: 1
+Entry 104 | Prediction: 1 | Correct: 1
+Entry 105 | Prediction: 2 | Correct: 1
+Entry 106 | Prediction: 4 | Correct: 4
+Entry 107 | Prediction: 2 | Correct: 2
+Entry 108 | Prediction: 3 | Correct: 3
+Entry 109 | Prediction: 0 | Correct: 0
+Entry 110 | Prediction: 2 | Correct: 2
+Entry 111 | Prediction: 2 | Correct: 2
+Entry 112 | Prediction: 2 | Correct: 2
+Entry 113 | Prediction: 1 | Correct: 1
+Entry 114 | Prediction: 0 | Correct: 0
+Entry 115 | Prediction: 1 | Correct: 1
+Entry 116 | Prediction: 3 | Correct: 3
+Entry 117 | Prediction: 2 | Correct: 2
+Entry 118 | Prediction: 1 | Correct: 1
+Entry 119 | Prediction: 4 | Correct: 4
+Entry 120 | Prediction: 3 | Correct: 3
+Entry 121 | Prediction: 4 | Correct: 4
+Entry 122 | Prediction: 2 | Correct: 2
+Entry 123 | Prediction: 0 | Correct: 0
+Entry 124 | Prediction: 0 | Correct: 0
+Entry 125 | Prediction: 4 | Correct: 4
+Entry 126 | Prediction: 0 | Correct: 0
+Entry 127 | Prediction: 3 | Correct: 3
+Entry 128 | Prediction: 2 | Correct: 2
+Entry 129 | Prediction: 0 | Correct: 1
+Entry 130 | Prediction: 2 | Correct: 1
+Entry 131 | Prediction: 4 | Correct: 0
+Entry 132 | Prediction: 1 | Correct: 1
+Entry 133 | Prediction: 0 | Correct: 0
+Entry 134 | Prediction: 4 | Correct: 4
+Entry 135 | Prediction: 2 | Correct: 2
+Entry 136 | Prediction: 1 | Correct: 1
+Entry 137 | Prediction: 4 | Correct: 4
+Entry 138 | Prediction: 4 | Correct: 4
+Entry 139 | Prediction: 1 | Correct: 1
+Entry 140 | Prediction: 0 | Correct: 0
+Entry 141 | Prediction: 3 | Correct: 3
+Entry 142 | Prediction: 0 | Correct: 1
+Entry 143 | Prediction: 1 | Correct: 1
+Entry 144 | Prediction: 2 | Correct: 2
+Entry 145 | Prediction: 0 | Correct: 0
+Entry 146 | Prediction: 3 | Correct: 3
+Entry 147 | Prediction: 4 | Correct: 4
+Entry 148 | Prediction: 2 | Correct: 1
+Entry 149 | Prediction: 3 | Correct: 3
+Entry 150 | Prediction: 0 | Correct: 0
+Entry 151 | Prediction: 0 | Correct: 0
+Entry 152 | Prediction: 0 | Correct: 0
+Entry 153 | Prediction: 4 | Correct: 4
+Entry 154 | Prediction: 3 | Correct: 3
+Entry 155 | Prediction: 2 | Correct: 2
+Entry 156 | Prediction: 3 | Correct: 3
+Entry 157 | Prediction: 2 | Correct: 2
+Entry 158 | Prediction: 4 | Correct: 0
+Entry 159 | Prediction: 2 | Correct: 2
+Entry 160 | Prediction: 4 | Correct: 4
+Entry 161 | Prediction: 0 | Correct: 0
+Entry 162 | Prediction: 0 | Correct: 0
+Entry 163 | Prediction: 2 | Correct: 2
+Entry 164 | Prediction: 2 | Correct: 2
+Entry 165 | Prediction: 1 | Correct: 1
+Entry 166 | Prediction: 2 | Correct: 2
+Entry 167 | Prediction: 4 | Correct: 4
+Entry 168 | Prediction: 2 | Correct: 1
+Entry 169 | Prediction: 1 | Correct: 1
+Entry 170 | Prediction: 3 | Correct: 3
+Entry 171 | Prediction: 3 | Correct: 0
+Entry 172 | Prediction: 4 | Correct: 4
+Entry 173 | Prediction: 4 | Correct: 4
+Entry 174 | Prediction: 4 | Correct: 4
+Entry 175 | Prediction: 3 | Correct: 3
+Entry 176 | Prediction: 2 | Correct: 2
+Entry 177 | Prediction: 2 | Correct: 2
+Entry 178 | Prediction: 2 | Correct: 2
+Entry 179 | Prediction: 3 | Correct: 3
+Entry 180 | Prediction: 3 | Correct: 3
+Entry 181 | Prediction: 3 | Correct: 3
+Entry 182 | Prediction: 4 | Correct: 4
+Entry 183 | Prediction: 4 | Correct: 4
+Entry 184 | Prediction: 4 | Correct: 4
+Entry 185 | Prediction: 2 | Correct: 2
+Entry 186 | Prediction: 4 | Correct: 4
+Entry 187 | Prediction: 2 | Correct: 2
+Entry 188 | Prediction: 2 | Correct: 1
+Entry 189 | Prediction: 0 | Correct: 0
+Entry 190 | Prediction: 1 | Correct: 1
+Entry 191 | Prediction: 3 | Correct: 3
+Entry 192 | Prediction: 0 | Correct: 0
+Entry 193 | Prediction: 0 | Correct: 0
+Entry 194 | Prediction: 2 | Correct: 2
+Entry 195 | Prediction: 2 | Correct: 1
+Entry 196 | Prediction: 1 | Correct: 1
+Entry 197 | Prediction: 2 | Correct: 2
+Entry 198 | Prediction: 4 | Correct: 4
+Entry 199 | Prediction: 4 | Correct: 4
+Entry 200 | Prediction: 1 | Correct: 1
+Entry 201 | Prediction: 4 | Correct: 4
+Entry 202 | Prediction: 2 | Correct: 1
+Entry 203 | Prediction: 4 | Correct: 4
+Entry 204 | Prediction: 4 | Correct: 4
+Entry 205 | Prediction: 0 | Correct: 0
+Entry 206 | Prediction: 0 | Correct: 0
+Entry 207 | Prediction: 4 | Correct: 4
+Entry 208 | Prediction: 2 | Correct: 2
+Entry 209 | Prediction: 4 | Correct: 4
+Entry 210 | Prediction: 2 | Correct: 2
+Entry 211 | Prediction: 0 | Correct: 0
+Entry 212 | Prediction: 3 | Correct: 3
+Entry 213 | Prediction: 2 | Correct: 2
+Entry 214 | Prediction: 0 | Correct: 0
+Entry 215 | Prediction: 1 | Correct: 1
+Entry 216 | Prediction: 0 | Correct: 0
+Entry 217 | Prediction: 0 | Correct: 0
+Entry 218 | Prediction: 1 | Correct: 1
+Entry 219 | Prediction: 4 | Correct: 4
+Entry 220 | Prediction: 3 | Correct: 3
+Entry 221 | Prediction: 1 | Correct: 1
+Entry 222 | Prediction: 3 | Correct: 3
+Entry 223 | Prediction: 0 | Correct: 0
+Entry 224 | Prediction: 4 | Correct: 4
+Entry 225 | Prediction: 3 | Correct: 3
+Entry 226 | Prediction: 2 | Correct: 2
+Entry 227 | Prediction: 2 | Correct: 2
+Entry 228 | Prediction: 4 | Correct: 4
+Entry 229 | Prediction: 0 | Correct: 0
+Entry 230 | Prediction: 0 | Correct: 1
+Entry 231 | Prediction: 4 | Correct: 0
+Entry 232 | Prediction: 2 | Correct: 2
+Entry 233 | Prediction: 3 | Correct: 3
+Entry 234 | Prediction: 3 | Correct: 3
+Entry 235 | Prediction: 1 | Correct: 1
+Entry 236 | Prediction: 1 | Correct: 1
+Entry 237 | Prediction: 1 | Correct: 1
+Entry 238 | Prediction: 3 | Correct: 3
+Entry 239 | Prediction: 0 | Correct: 0
+Entry 240 | Prediction: 4 | Correct: 4
+Entry 241 | Prediction: 4 | Correct: 4
+Entry 242 | Prediction: 4 | Correct: 4
+Entry 243 | Prediction: 0 | Correct: 0
+Entry 244 | Prediction: 4 | Correct: 4
+Entry 245 | Prediction: 1 | Correct: 1
+
+Test Accuracy:  0.9146341463414634
+Quadratic Weighted Kappa:  0.8946260885476882
+
+Entry Number | Prediction (None, Flip, Elastic Deformation, Affine, Noise, Blur) | Actual
+Entry 0 | Predictions: [2, 2, 2, 4, 1, 2] | Most Occuring: 2 | Correct: 2
+Entry 1 | Predictions: [0, 0, 0, 0, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 2 | Predictions: [1, 2, 1, 1, 3, 1] | Most Occuring: 1 | Correct: 1
+Entry 3 | Predictions: [0, 0, 0, 1, 4, 0] | Most Occuring: 0 | Correct: 0
+Entry 4 | Predictions: [0, 0, 0, 0, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 5 | Predictions: [1, 1, 2, 1, 1, 2] | Most Occuring: 1 | Correct: 1
+Entry 6 | Predictions: [2, 1, 2, 2, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 7 | Predictions: [1, 1, 1, 0, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 8 | Predictions: [2, 2, 2, 2, 0, 2] | Most Occuring: 2 | Correct: 2
+Entry 9 | Predictions: [0, 4, 0, 4, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 10 | Predictions: [1, 1, 1, 1, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 11 | Predictions: [1, 1, 1, 1, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 12 | Predictions: [3, 3, 3, 1, 3, 3] | Most Occuring: 3 | Correct: 3
+Entry 13 | Predictions: [1, 2, 3, 1, 0, 1] | Most Occuring: 1 | Correct: 1
+Entry 14 | Predictions: [1, 1, 2, 1, 0, 1] | Most Occuring: 1 | Correct: 1
+Entry 15 | Predictions: [0, 0, 1, 0, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 16 | Predictions: [1, 3, 4, 3, 2, 1] | Most Occuring: 1 | Correct: 1
+Entry 17 | Predictions: [1, 1, 2, 1, 0, 3] | Most Occuring: 1 | Correct: 1
+Entry 18 | Predictions: [1, 1, 1, 1, 0, 1] | Most Occuring: 1 | Correct: 1
+Entry 19 | Predictions: [1, 1, 0, 1, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 20 | Predictions: [2, 2, 2, 2, 0, 2] | Most Occuring: 2 | Correct: 2
+Entry 21 | Predictions: [0, 0, 0, 2, 0, 4] | Most Occuring: 0 | Correct: 0
+Entry 22 | Predictions: [1, 1, 1, 1, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 23 | Predictions: [2, 1, 2, 2, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 24 | Predictions: [1, 1, 1, 1, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 25 | Predictions: [1, 0, 0, 1, 0, 3] | Most Occuring: 0 | Correct: 0
+Entry 26 | Predictions: [2, 4, 1, 2, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 27 | Predictions: [0, 1, 0, 0, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 28 | Predictions: [3, 3, 3, 3, 1, 3] | Most Occuring: 3 | Correct: 3
+Entry 29 | Predictions: [2, 2, 2, 2, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 30 | Predictions: [1, 0, 1, 1, 1, 0] | Most Occuring: 1 | Correct: 1
+Entry 31 | Predictions: [0, 0, 0, 0, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 32 | Predictions: [2, 0, 2, 2, 1, 2] | Most Occuring: 2 | Correct: 2
+Entry 33 | Predictions: [2, 2, 2, 2, 0, 2] | Most Occuring: 2 | Correct: 2
+Entry 34 | Predictions: [2, 2, 2, 0, 3, 2] | Most Occuring: 2 | Correct: 2
+Entry 35 | Predictions: [0, 0, 2, 1, 0, 2] | Most Occuring: 0 | Correct: 1
+Entry 36 | Predictions: [2, 2, 2, 3, 1, 2] | Most Occuring: 2 | Correct: 1
+Entry 37 | Predictions: [0, 0, 0, 0, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 38 | Predictions: [1, 1, 1, 1, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 39 | Predictions: [4, 4, 4, 4, 4, 4] | Most Occuring: 4 | Correct: 4
+Entry 40 | Predictions: [1, 1, 1, 1, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 41 | Predictions: [1, 1, 1, 1, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 42 | Predictions: [2, 2, 2, 2, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 43 | Predictions: [0, 2, 2, 2, 3, 2] | Most Occuring: 2 | Correct: 0
+Entry 44 | Predictions: [1, 1, 1, 1, 0, 1] | Most Occuring: 1 | Correct: 1
+Entry 45 | Predictions: [2, 1, 2, 1, 3, 1] | Most Occuring: 1 | Correct: 2
+Entry 46 | Predictions: [1, 2, 1, 1, 0, 1] | Most Occuring: 1 | Correct: 1
+Entry 47 | Predictions: [0, 0, 0, 0, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 48 | Predictions: [1, 1, 1, 1, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 49 | Predictions: [1, 2, 1, 1, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 50 | Predictions: [1, 1, 1, 1, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 51 | Predictions: [0, 0, 0, 2, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 52 | Predictions: [1, 3, 1, 4, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 53 | Predictions: [0, 0, 3, 1, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 54 | Predictions: [0, 0, 0, 0, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 55 | Predictions: [2, 2, 2, 0, 1, 2] | Most Occuring: 2 | Correct: 2
+Entry 56 | Predictions: [0, 0, 0, 2, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 57 | Predictions: [1, 2, 2, 1, 0, 1] | Most Occuring: 1 | Correct: 1
+Entry 58 | Predictions: [3, 3, 3, 3, 3, 3] | Most Occuring: 3 | Correct: 3
+Entry 59 | Predictions: [1, 2, 1, 1, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 60 | Predictions: [1, 1, 4, 0, 2, 1] | Most Occuring: 1 | Correct: 1
+Entry 61 | Predictions: [1, 1, 1, 1, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 62 | Predictions: [4, 4, 0, 4, 4, 4] | Most Occuring: 4 | Correct: 4
+Entry 63 | Predictions: [0, 0, 1, 0, 4, 0] | Most Occuring: 0 | Correct: 0
+Entry 64 | Predictions: [0, 0, 1, 2, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 65 | Predictions: [1, 1, 0, 2, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 66 | Predictions: [0, 0, 0, 0, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 67 | Predictions: [0, 0, 4, 0, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 68 | Predictions: [0, 0, 2, 0, 0, 2] | Most Occuring: 0 | Correct: 0
+Entry 69 | Predictions: [2, 4, 1, 2, 2, 1] | Most Occuring: 2 | Correct: 1
+Entry 70 | Predictions: [0, 0, 0, 0, 3, 0] | Most Occuring: 0 | Correct: 0
+Entry 71 | Predictions: [1, 4, 1, 1, 0, 1] | Most Occuring: 1 | Correct: 1
+Entry 72 | Predictions: [0, 1, 2, 0, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 73 | Predictions: [2, 2, 1, 1, 4, 0] | Most Occuring: 1 | Correct: 0
+Entry 74 | Predictions: [0, 0, 0, 0, 2, 0] | Most Occuring: 0 | Correct: 0
+Entry 75 | Predictions: [0, 0, 0, 3, 0, 1] | Most Occuring: 0 | Correct: 0
+Entry 76 | Predictions: [0, 0, 0, 0, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 77 | Predictions: [2, 2, 2, 2, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 78 | Predictions: [0, 4, 0, 0, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 79 | Predictions: [0, 0, 0, 0, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 80 | Predictions: [2, 2, 4, 0, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 81 | Predictions: [4, 0, 4, 4, 4, 4] | Most Occuring: 4 | Correct: 0
+Entry 82 | Predictions: [0, 0, 3, 0, 3, 1] | Most Occuring: 0 | Correct: 0
+Entry 83 | Predictions: [0, 2, 0, 4, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 84 | Predictions: [0, 2, 2, 2, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 85 | Predictions: [1, 1, 1, 1, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 86 | Predictions: [1, 1, 1, 1, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 87 | Predictions: [4, 4, 4, 4, 0, 4] | Most Occuring: 4 | Correct: 4
+Entry 88 | Predictions: [0, 3, 0, 0, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 89 | Predictions: [2, 2, 2, 2, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 90 | Predictions: [2, 2, 2, 2, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 91 | Predictions: [1, 1, 4, 2, 0, 1] | Most Occuring: 1 | Correct: 1
+Entry 92 | Predictions: [2, 2, 2, 0, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 93 | Predictions: [0, 0, 3, 0, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 94 | Predictions: [1, 1, 1, 0, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 95 | Predictions: [3, 3, 0, 0, 0, 3] | Most Occuring: 0 | Correct: 0
+Entry 96 | Predictions: [3, 3, 4, 1, 3, 3] | Most Occuring: 3 | Correct: 3
+Entry 97 | Predictions: [1, 2, 1, 1, 1, 2] | Most Occuring: 1 | Correct: 1
+Entry 98 | Predictions: [1, 1, 1, 1, 1, 0] | Most Occuring: 1 | Correct: 1
+Entry 99 | Predictions: [3, 1, 3, 3, 3, 3] | Most Occuring: 3 | Correct: 3
+Entry 100 | Predictions: [4, 4, 4, 4, 4, 4] | Most Occuring: 4 | Correct: 4
+Entry 101 | Predictions: [4, 4, 4, 4, 4, 4] | Most Occuring: 4 | Correct: 4
+Entry 102 | Predictions: [2, 1, 0, 2, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 103 | Predictions: [1, 1, 1, 1, 3, 0] | Most Occuring: 1 | Correct: 1
+Entry 104 | Predictions: [4, 4, 4, 4, 4, 4] | Most Occuring: 4 | Correct: 4
+Entry 105 | Predictions: [3, 3, 3, 3, 4, 3] | Most Occuring: 3 | Correct: 3
+Entry 106 | Predictions: [3, 3, 3, 3, 3, 3] | Most Occuring: 3 | Correct: 3
+Entry 107 | Predictions: [4, 1, 4, 4, 4, 4] | Most Occuring: 4 | Correct: 4
+Entry 108 | Predictions: [1, 1, 1, 1, 1, 2] | Most Occuring: 1 | Correct: 1
+Entry 109 | Predictions: [3, 3, 3, 0, 3, 3] | Most Occuring: 3 | Correct: 3
+Entry 110 | Predictions: [1, 1, 1, 1, 0, 0] | Most Occuring: 1 | Correct: 1
+Entry 111 | Predictions: [2, 2, 2, 0, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 112 | Predictions: [2, 1, 2, 2, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 113 | Predictions: [0, 2, 0, 0, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 114 | Predictions: [3, 1, 2, 2, 3, 2] | Most Occuring: 2 | Correct: 1
+Entry 115 | Predictions: [0, 0, 0, 4, 1, 0] | Most Occuring: 0 | Correct: 0
+Entry 116 | Predictions: [0, 0, 0, 1, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 117 | Predictions: [1, 1, 1, 3, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 118 | Predictions: [2, 2, 2, 2, 1, 2] | Most Occuring: 2 | Correct: 2
+Entry 119 | Predictions: [1, 1, 1, 0, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 120 | Predictions: [2, 2, 2, 2, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 121 | Predictions: [0, 0, 0, 0, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 122 | Predictions: [1, 1, 1, 1, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 123 | Predictions: [1, 1, 2, 0, 2, 1] | Most Occuring: 1 | Correct: 1
+Entry 124 | Predictions: [3, 3, 3, 3, 3, 3] | Most Occuring: 3 | Correct: 3
+Entry 125 | Predictions: [1, 1, 0, 1, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 126 | Predictions: [1, 1, 1, 4, 0, 1] | Most Occuring: 1 | Correct: 1
+Entry 127 | Predictions: [0, 0, 0, 1, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 128 | Predictions: [1, 1, 1, 1, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 129 | Predictions: [0, 0, 1, 4, 1, 0] | Most Occuring: 0 | Correct: 1
+Entry 130 | Predictions: [1, 1, 2, 1, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 131 | Predictions: [1, 0, 1, 3, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 132 | Predictions: [2, 2, 2, 2, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 133 | Predictions: [0, 0, 0, 0, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 134 | Predictions: [1, 1, 1, 1, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 135 | Predictions: [2, 2, 2, 2, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 136 | Predictions: [1, 1, 1, 0, 1, 2] | Most Occuring: 1 | Correct: 1
+Entry 137 | Predictions: [0, 0, 0, 1, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 138 | Predictions: [2, 2, 2, 2, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 139 | Predictions: [0, 0, 4, 0, 2, 0] | Most Occuring: 0 | Correct: 0
+Entry 140 | Predictions: [3, 4, 3, 3, 3, 3] | Most Occuring: 3 | Correct: 3
+Entry 141 | Predictions: [2, 2, 1, 2, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 142 | Predictions: [1, 1, 2, 2, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 143 | Predictions: [0, 0, 3, 0, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 144 | Predictions: [2, 4, 2, 2, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 145 | Predictions: [2, 2, 2, 4, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 146 | Predictions: [2, 1, 2, 2, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 147 | Predictions: [0, 3, 0, 3, 0, 0] | Most Occuring: 0 | Correct: 1
+Entry 148 | Predictions: [2, 2, 4, 1, 2, 2] | Most Occuring: 2 | Correct: 1
+Entry 149 | Predictions: [0, 0, 0, 0, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 150 | Predictions: [1, 1, 0, 2, 0, 1] | Most Occuring: 1 | Correct: 1
+Entry 151 | Predictions: [4, 4, 4, 4, 4, 4] | Most Occuring: 4 | Correct: 4
+Entry 152 | Predictions: [1, 1, 1, 3, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 153 | Predictions: [1, 1, 1, 3, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 154 | Predictions: [2, 2, 1, 2, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 155 | Predictions: [0, 0, 1, 3, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 156 | Predictions: [1, 1, 1, 1, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 157 | Predictions: [2, 2, 2, 2, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 158 | Predictions: [2, 1, 0, 1, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 159 | Predictions: [0, 0, 0, 0, 2, 0] | Most Occuring: 0 | Correct: 0
+Entry 160 | Predictions: [1, 1, 1, 1, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 161 | Predictions: [1, 1, 1, 3, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 162 | Predictions: [1, 1, 4, 1, 4, 1] | Most Occuring: 1 | Correct: 1
+Entry 163 | Predictions: [0, 0, 1, 2, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 164 | Predictions: [1, 2, 1, 1, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 165 | Predictions: [0, 1, 0, 1, 0, 1] | Most Occuring: 0 | Correct: 0
+Entry 166 | Predictions: [0, 0, 1, 0, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 167 | Predictions: [2, 2, 2, 4, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 168 | Predictions: [0, 0, 0, 1, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 169 | Predictions: [1, 2, 1, 1, 3, 1] | Most Occuring: 1 | Correct: 1
+Entry 170 | Predictions: [3, 3, 1, 3, 3, 3] | Most Occuring: 3 | Correct: 3
+Entry 171 | Predictions: [1, 1, 1, 2, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 172 | Predictions: [1, 1, 0, 2, 0, 1] | Most Occuring: 1 | Correct: 1
+Entry 173 | Predictions: [1, 0, 1, 1, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 174 | Predictions: [4, 0, 4, 0, 2, 4] | Most Occuring: 4 | Correct: 4
+Entry 175 | Predictions: [0, 0, 3, 0, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 176 | Predictions: [0, 0, 0, 2, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 177 | Predictions: [1, 1, 1, 1, 0, 1] | Most Occuring: 1 | Correct: 1
+Entry 178 | Predictions: [0, 0, 0, 1, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 179 | Predictions: [0, 0, 3, 0, 3, 0] | Most Occuring: 0 | Correct: 0
+Entry 180 | Predictions: [0, 0, 0, 0, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 181 | Predictions: [0, 0, 1, 0, 1, 1] | Most Occuring: 0 | Correct: 1
+Entry 182 | Predictions: [0, 0, 0, 4, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 183 | Predictions: [1, 0, 2, 0, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 184 | Predictions: [0, 0, 0, 0, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 185 | Predictions: [0, 0, 0, 1, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 186 | Predictions: [0, 0, 0, 0, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 187 | Predictions: [0, 0, 0, 0, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 188 | Predictions: [0, 0, 0, 0, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 189 | Predictions: [2, 4, 4, 2, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 190 | Predictions: [0, 0, 1, 0, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 191 | Predictions: [0, 0, 0, 0, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 192 | Predictions: [2, 1, 2, 2, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 193 | Predictions: [0, 0, 0, 0, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 194 | Predictions: [0, 2, 4, 2, 2, 0] | Most Occuring: 2 | Correct: 0
+Entry 195 | Predictions: [0, 0, 0, 0, 1, 0] | Most Occuring: 0 | Correct: 0
+Entry 196 | Predictions: [0, 0, 0, 4, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 197 | Predictions: [1, 1, 1, 3, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 198 | Predictions: [1, 1, 1, 1, 0, 1] | Most Occuring: 1 | Correct: 1
+Entry 199 | Predictions: [4, 4, 4, 4, 4, 4] | Most Occuring: 4 | Correct: 4
+Entry 200 | Predictions: [0, 0, 0, 0, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 201 | Predictions: [2, 2, 2, 2, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 202 | Predictions: [2, 2, 2, 2, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 203 | Predictions: [1, 3, 1, 3, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 204 | Predictions: [2, 2, 2, 4, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 205 | Predictions: [0, 0, 2, 0, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 206 | Predictions: [1, 1, 1, 1, 0, 1] | Most Occuring: 1 | Correct: 1
+Entry 207 | Predictions: [0, 0, 0, 0, 0, 4] | Most Occuring: 0 | Correct: 0
+Entry 208 | Predictions: [3, 3, 3, 3, 2, 3] | Most Occuring: 3 | Correct: 3
+Entry 209 | Predictions: [1, 1, 0, 1, 1, 3] | Most Occuring: 1 | Correct: 1
+Entry 210 | Predictions: [1, 2, 1, 1, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 211 | Predictions: [3, 3, 3, 3, 3, 3] | Most Occuring: 3 | Correct: 3
+Entry 212 | Predictions: [4, 4, 4, 4, 4, 4] | Most Occuring: 4 | Correct: 4
+Entry 213 | Predictions: [4, 4, 4, 4, 4, 4] | Most Occuring: 4 | Correct: 4
+Entry 214 | Predictions: [2, 3, 1, 2, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 215 | Predictions: [1, 1, 1, 1, 3, 1] | Most Occuring: 1 | Correct: 1
+Entry 216 | Predictions: [4, 3, 4, 2, 4, 4] | Most Occuring: 4 | Correct: 4
+Entry 217 | Predictions: [3, 3, 3, 3, 0, 3] | Most Occuring: 3 | Correct: 3
+Entry 218 | Predictions: [3, 4, 3, 3, 3, 3] | Most Occuring: 3 | Correct: 3
+Entry 219 | Predictions: [4, 4, 4, 4, 4, 4] | Most Occuring: 4 | Correct: 4
+Entry 220 | Predictions: [1, 1, 2, 2, 4, 1] | Most Occuring: 1 | Correct: 1
+Entry 221 | Predictions: [3, 3, 3, 3, 3, 3] | Most Occuring: 3 | Correct: 3
+Entry 222 | Predictions: [0, 0, 0, 4, 0, 0] | Most Occuring: 0 | Correct: 1
+Entry 223 | Predictions: [2, 2, 2, 2, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 224 | Predictions: [2, 2, 2, 1, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 225 | Predictions: [0, 0, 0, 2, 3, 0] | Most Occuring: 0 | Correct: 0
+Entry 226 | Predictions: [1, 1, 0, 1, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 227 | Predictions: [0, 1, 0, 1, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 228 | Predictions: [0, 1, 0, 0, 2, 0] | Most Occuring: 0 | Correct: 0
+Entry 229 | Predictions: [1, 1, 1, 0, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 230 | Predictions: [2, 0, 2, 2, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 231 | Predictions: [1, 1, 1, 2, 0, 1] | Most Occuring: 1 | Correct: 1
+Entry 232 | Predictions: [2, 2, 2, 0, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 233 | Predictions: [0, 3, 4, 0, 1, 0] | Most Occuring: 0 | Correct: 0
+Entry 234 | Predictions: [1, 1, 3, 3, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 235 | Predictions: [2, 2, 2, 2, 2, 2] | Most Occuring: 2 | Correct: 1
+Entry 236 | Predictions: [3, 3, 3, 2, 1, 3] | Most Occuring: 3 | Correct: 3
+Entry 237 | Predictions: [1, 1, 1, 1, 2, 1] | Most Occuring: 1 | Correct: 1
+Entry 238 | Predictions: [1, 1, 1, 1, 0, 1] | Most Occuring: 1 | Correct: 1
+Entry 239 | Predictions: [4, 4, 2, 0, 0, 2] | Most Occuring: 0 | Correct: 0
+Entry 240 | Predictions: [1, 1, 1, 1, 0, 1] | Most Occuring: 1 | Correct: 1
+Entry 241 | Predictions: [1, 1, 1, 1, 0, 1] | Most Occuring: 1 | Correct: 1
+Entry 242 | Predictions: [2, 1, 0, 1, 3, 2] | Most Occuring: 1 | Correct: 1
+Entry 243 | Predictions: [2, 2, 2, 1, 3, 2] | Most Occuring: 2 | Correct: 1
+Entry 244 | Predictions: [2, 2, 2, 2, 3, 2] | Most Occuring: 2 | Correct: 2
+Entry 245 | Predictions: [0, 0, 0, 0, 1, 0] | Most Occuring: 0 | Correct: 0
+Entry 246 | Predictions: [1, 1, 1, 3, 0, 1] | Most Occuring: 1 | Correct: 1
+Entry 247 | Predictions: [2, 2, 2, 0, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 248 | Predictions: [1, 0, 0, 0, 1, 1] | Most Occuring: 0 | Correct: 1
+Entry 249 | Predictions: [0, 0, 0, 1, 2, 0] | Most Occuring: 0 | Correct: 0
+Entry 250 | Predictions: [2, 2, 2, 2, 1, 2] | Most Occuring: 2 | Correct: 2
+Entry 251 | Predictions: [0, 0, 0, 1, 1, 0] | Most Occuring: 0 | Correct: 0
+Entry 252 | Predictions: [3, 3, 3, 3, 3, 3] | Most Occuring: 3 | Correct: 3
+Entry 253 | Predictions: [2, 2, 2, 2, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 254 | Predictions: [1, 1, 1, 0, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 255 | Predictions: [0, 0, 0, 0, 2, 0] | Most Occuring: 0 | Correct: 0
+Entry 256 | Predictions: [2, 2, 2, 2, 3, 2] | Most Occuring: 2 | Correct: 2
+Entry 257 | Predictions: [2, 4, 2, 0, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 258 | Predictions: [2, 0, 2, 2, 1, 2] | Most Occuring: 2 | Correct: 2
+Entry 259 | Predictions: [2, 2, 2, 1, 0, 2] | Most Occuring: 2 | Correct: 1
+Entry 260 | Predictions: [1, 1, 1, 2, 4, 1] | Most Occuring: 1 | Correct: 1
+Entry 261 | Predictions: [0, 0, 0, 0, 2, 0] | Most Occuring: 0 | Correct: 0
+Entry 262 | Predictions: [0, 0, 0, 0, 3, 1] | Most Occuring: 0 | Correct: 1
+Entry 263 | Predictions: [4, 0, 4, 1, 4, 4] | Most Occuring: 4 | Correct: 4
+Entry 264 | Predictions: [1, 1, 1, 1, 2, 1] | Most Occuring: 1 | Correct: 1
+Entry 265 | Predictions: [4, 4, 4, 4, 4, 4] | Most Occuring: 4 | Correct: 1
+Entry 266 | Predictions: [2, 2, 2, 0, 0, 2] | Most Occuring: 2 | Correct: 2
+Entry 267 | Predictions: [0, 0, 0, 0, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 268 | Predictions: [1, 4, 1, 1, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 269 | Predictions: [2, 0, 0, 2, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 270 | Predictions: [2, 0, 2, 2, 2, 2] | Most Occuring: 2 | Correct: 1
+Entry 271 | Predictions: [0, 0, 0, 2, 1, 0] | Most Occuring: 0 | Correct: 0
+Entry 272 | Predictions: [1, 1, 4, 1, 4, 1] | Most Occuring: 1 | Correct: 1
+Entry 273 | Predictions: [1, 2, 1, 4, 0, 1] | Most Occuring: 1 | Correct: 1
+Entry 274 | Predictions: [1, 1, 1, 1, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 275 | Predictions: [0, 0, 0, 1, 3, 0] | Most Occuring: 0 | Correct: 0
+Entry 276 | Predictions: [1, 1, 2, 4, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 277 | Predictions: [0, 0, 0, 0, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 278 | Predictions: [0, 0, 0, 0, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 279 | Predictions: [2, 2, 2, 2, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 280 | Predictions: [0, 0, 0, 1, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 281 | Predictions: [1, 1, 1, 1, 0, 1] | Most Occuring: 1 | Correct: 1
+Entry 282 | Predictions: [3, 3, 3, 3, 1, 3] | Most Occuring: 3 | Correct: 3
+Entry 283 | Predictions: [1, 0, 1, 3, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 284 | Predictions: [1, 1, 0, 2, 4, 1] | Most Occuring: 1 | Correct: 1
+Entry 285 | Predictions: [4, 2, 4, 4, 1, 1] | Most Occuring: 4 | Correct: 1
+Entry 286 | Predictions: [4, 4, 4, 0, 4, 4] | Most Occuring: 4 | Correct: 4
+Entry 287 | Predictions: [2, 2, 2, 2, 3, 2] | Most Occuring: 2 | Correct: 0
+Entry 288 | Predictions: [4, 4, 0, 1, 1, 0] | Most Occuring: 0 | Correct: 0
+Entry 289 | Predictions: [1, 2, 1, 1, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 290 | Predictions: [0, 0, 0, 0, 1, 0] | Most Occuring: 0 | Correct: 0
+Entry 291 | Predictions: [0, 0, 0, 0, 2, 0] | Most Occuring: 0 | Correct: 0
+Entry 292 | Predictions: [0, 0, 0, 4, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 293 | Predictions: [1, 1, 0, 1, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 294 | Predictions: [2, 2, 1, 2, 2, 2] | Most Occuring: 2 | Correct: 0
+Entry 295 | Predictions: [1, 2, 3, 0, 0, 1] | Most Occuring: 0 | Correct: 1
+Entry 296 | Predictions: [0, 0, 1, 1, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 297 | Predictions: [0, 0, 0, 0, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 298 | Predictions: [0, 0, 0, 1, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 299 | Predictions: [0, 0, 2, 0, 1, 1] | Most Occuring: 0 | Correct: 0
+Entry 300 | Predictions: [0, 0, 4, 0, 4, 0] | Most Occuring: 0 | Correct: 0
+Entry 301 | Predictions: [2, 0, 2, 1, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 302 | Predictions: [0, 0, 0, 0, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 303 | Predictions: [0, 0, 0, 0, 2, 0] | Most Occuring: 0 | Correct: 0
+Entry 304 | Predictions: [2, 1, 2, 2, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 305 | Predictions: [4, 3, 3, 2, 1, 3] | Most Occuring: 3 | Correct: 0
+Entry 306 | Predictions: [0, 0, 2, 0, 3, 0] | Most Occuring: 0 | Correct: 0
+Entry 307 | Predictions: [0, 4, 0, 0, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 308 | Predictions: [4, 0, 4, 1, 4, 3] | Most Occuring: 4 | Correct: 0
+Entry 309 | Predictions: [1, 4, 1, 1, 2, 1] | Most Occuring: 1 | Correct: 1
+Entry 310 | Predictions: [1, 1, 0, 1, 2, 0] | Most Occuring: 1 | Correct: 1
+Entry 311 | Predictions: [4, 4, 4, 0, 4, 4] | Most Occuring: 4 | Correct: 4
+Entry 312 | Predictions: [0, 0, 0, 0, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 313 | Predictions: [2, 2, 2, 0, 0, 2] | Most Occuring: 2 | Correct: 2
+Entry 314 | Predictions: [2, 2, 2, 2, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 315 | Predictions: [2, 0, 0, 1, 2, 2] | Most Occuring: 2 | Correct: 1
+Entry 316 | Predictions: [2, 2, 2, 0, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 317 | Predictions: [2, 2, 2, 2, 1, 2] | Most Occuring: 2 | Correct: 0
+Entry 318 | Predictions: [1, 1, 1, 1, 2, 1] | Most Occuring: 1 | Correct: 1
+Entry 319 | Predictions: [0, 0, 0, 0, 0, 0] | Most Occuring: 0 | Correct: 0
+Entry 320 | Predictions: [3, 3, 3, 3, 3, 3] | Most Occuring: 3 | Correct: 3
+Entry 321 | Predictions: [1, 1, 1, 2, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 322 | Predictions: [1, 1, 2, 0, 3, 1] | Most Occuring: 1 | Correct: 1
+Entry 323 | Predictions: [3, 3, 4, 3, 3, 3] | Most Occuring: 3 | Correct: 3
+Entry 324 | Predictions: [4, 4, 4, 4, 1, 4] | Most Occuring: 4 | Correct: 4
+Entry 325 | Predictions: [4, 4, 4, 4, 3, 4] | Most Occuring: 4 | Correct: 4
+Entry 326 | Predictions: [2, 1, 2, 2, 2, 2] | Most Occuring: 2 | Correct: 2
+Entry 327 | Predictions: [1, 1, 2, 1, 0, 1] | Most Occuring: 1 | Correct: 1
+Entry 328 | Predictions: [4, 3, 0, 4, 4, 4] | Most Occuring: 4 | Correct: 4
+Entry 329 | Predictions: [3, 3, 3, 3, 3, 3] | Most Occuring: 3 | Correct: 3
+Entry 330 | Predictions: [3, 3, 0, 3, 0, 3] | Most Occuring: 3 | Correct: 3
+Entry 331 | Predictions: [4, 4, 4, 4, 1, 4] | Most Occuring: 4 | Correct: 4
+Entry 332 | Predictions: [1, 1, 1, 0, 2, 1] | Most Occuring: 1 | Correct: 1
+Entry 333 | Predictions: [3, 3, 3, 3, 4, 3] | Most Occuring: 3 | Correct: 3
+Entry 334 | Predictions: [1, 0, 2, 1, 1, 1] | Most Occuring: 1 | Correct: 1
+Entry 335 | Predictions: [2, 2, 4, 2, 2, 2] | Most Occuring: 2 | Correct: 2
+
+Test Accuracy:  0.9136904761904762
+Quadratic Weighted Kappa:  0.8939250439723989
