@@ -17,6 +17,22 @@ def main():
     prev_dcm()
 
 
+# Preview 3D array
+def prev_array(img):
+    img = img.reshape(40, 40, 4)
+    img = np.swapaxes(img, 0, 1)
+    img = np.swapaxes(img, 0, 2)
+
+    fig = plt.figure()
+
+    for num, arr in enumerate(img):
+        y = fig.add_subplot(2, 2, num+1)
+        new_img = arr
+        y.imshow(new_img)
+
+    plt.show()
+
+
 # Preview roi data
 def prev_data():
     train_x = np.load('../src/x_sample.npy')
