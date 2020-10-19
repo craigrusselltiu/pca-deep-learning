@@ -11,23 +11,14 @@ from torchio.transforms import OneOf, Compose, RandomAffine, RandomElasticDeform
 
 
 # Config (move to config file later)
-train = True
-load = 'base_256'
-save = 'trained_base_256'
+train = False
+load = 'trained_base_64'
+save = 'trained_base_64'
 eps = 50
 
 # Load dataset
-x_t2w = np.load('x_t2tsetra.npy')
-y_t2w = np.load('y_t2tsetra.npy')
-
-x_adc = np.load('x_adc.npy')
-y_adc = np.load('y_adc.npy')
-
-x_bval = np.load('x_bval.npy')
-y_bval = np.load('y_bval.npy')
-
-x_train = np.concatenate([x_t2w, x_adc, x_bval])
-y_train = np.concatenate([y_t2w, y_adc, y_bval])
+x_train = np.load('x_train.npy')
+y_train = np.load('y_train.npy')
 
 # Store starting data for prediction
 x_all = x_train
