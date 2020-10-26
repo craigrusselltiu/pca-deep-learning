@@ -1,0 +1,3 @@
+Epochs ran: 1
+
+1. (blur, 5, 0.9, affine, 8, 0.2) | Kappa: 0.7659824046920821

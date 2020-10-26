@@ -10,7 +10,7 @@ from sklearn.model_selection import train_test_split
 from torchio.transforms import OneOf, Compose, RandomAffine, RandomElasticDeformation, RandomFlip, RandomNoise, RandomBlur, RandomDownsample, RandomSwap
 
 
-# Config (move to config file later)
+# Config (move to config file/class later)
 train = False
 load = 'trained_base_64'
 save = 'trained_base_64'

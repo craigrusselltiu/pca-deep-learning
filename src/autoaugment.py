@@ -23,14 +23,20 @@ class Policy(object):
             "elasticD": lambda magnitude, p: RandomElasticDeformation(p=p)
         }
 
-        self.p1 = p1
-        self.m1 = ranges[transform1][m1]
         self.transform1 = transforms[transform1]
+        self.t1_input = transform1
+        self.m1 = ranges[transform1][m1]
+        self.m1_input = m1
+        self.p1 = p1
         
-        self.p2 = p2
-        self.m2 = ranges[transform2][m2]
         self.transform2 = transforms[transform2]
+        self.t2_input = transform2
+        self.m2 = ranges[transform2][m2]
+        self.m2_input = m2
+        self.p2 = p2
 
+        self.kappa = 0.0
+        
 
     def __call__(self, img):
         transform1 = self.transform1(self.m1, self.p2)
@@ -59,10 +65,10 @@ def main():
     """
 
     # Test policy transformation application
-    x_train = np.load('x_adc.npy')
+    x_train = np.load('x_train.npy')
     x_train = np.reshape(x_train, (len(x_train), 40, 40, 4, 1))
 
-    test_policy = Policy("flip", 0, 1, "noise", 1, 1)
+    test_policy = Policy("flip", 0, 1, "noise", 2, 1)
 
     roi = x_train[0]
     preview_roi(roi)
