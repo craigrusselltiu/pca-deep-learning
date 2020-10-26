@@ -19,7 +19,6 @@ def cnn_3d():
     model.add(Dense(units=5, activation='softmax'))
 
     model.compile(loss='categorical_crossentropy',
-        # optimizer=SGD(lr=0.01, momentum=0.9),
         optimizer=Adam(lr=0.001),
         metrics=['accuracy'])
 
