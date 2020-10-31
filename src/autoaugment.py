@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+from random import randint
 from torchio.transforms import OneOf, Compose, RandomAffine, RandomElasticDeformation, RandomFlip, RandomNoise, RandomBlur
 
 
@@ -8,19 +9,19 @@ class Policy(object):
 
     def __init__(self, transform1, m1, p1, transform2, m2, p2):
         ranges = {
-            "flip": np.zeros(10),
-            "affine": np.linspace(0, 180, 10),
-            "noise" : np.linspace(0, 0.5, 10),
-            "blur": np.arange(10),
-            "elasticD": np.zeros(10)
+            'flip': np.zeros(10),
+            'affine': np.linspace(0, 180, 10),
+            'noise' : np.linspace(0, 0.5, 10),
+            'blur': np.arange(10),
+            'elasticD': np.zeros(10)
         }
 
         transforms = {
-            "flip": lambda magnitude, p: RandomFlip(p=p),
-            "affine": lambda magnitude, p: RandomAffine(degrees=(magnitude), p=p),
-            "noise" : lambda magnitude, p: RandomNoise(std=magnitude, p=p),
-            "blur": lambda magnitude, p: RandomBlur(std=magnitude, p=p),
-            "elasticD": lambda magnitude, p: RandomElasticDeformation(p=p)
+            'flip': lambda magnitude, p: RandomFlip(p=p),
+            'affine': lambda magnitude, p: RandomAffine(degrees=(magnitude), p=p),
+            'noise' : lambda magnitude, p: RandomNoise(std=magnitude, p=p),
+            'blur': lambda magnitude, p: RandomBlur(std=magnitude, p=p),
+            'elasticD': lambda magnitude, p: RandomElasticDeformation(p=p)
         }
 
         self.transform1 = transforms[transform1]
@@ -45,30 +46,59 @@ class Policy(object):
         return transform(img)
 
 
+class AlphaPolicy(object):
+    
+    def __init__(self):
+        self.policies = [
+            Policy('blur', 3, 0.3, 'affine', 4, 0.0),
+            Policy('affine', 6, 0.1, 'flip', 8, 0.0),
+            Policy('blur', 2, 1.0, 'affine', 5, 0.0),
+            Policy('affine', 6, 0.4, 'elasticD', 1, 0.0),
+
+            Policy('flip', 6, 0.8, 'affine', 7, 0.0),
+            Policy('noise', 4, 0.6, 'flip', 8, 0.0),
+            Policy('blur', 3, 0.7, 'noise', 1, 0.0),
+            Policy('noise', 1, 1.0, 'flip', 8, 0.8),
+
+            Policy('flip', 4, 0.2, 'noise', 2, 0.0),
+            Policy('blur', 5, 0.6, 'elasticD', 6, 0.0),
+            Policy('elasticD', 7, 0.6, 'blur', 3, 0.0),
+            Policy('noise', 1, 0.5, 'flip', 8, 0.3)
+        ]
+
+    def __call__(self, img):
+        policy = randint(0, len(self.policies) - 1)
+        return self.policies[policy](img)
+
+
 def preview_roi(img):
-        img = np.swapaxes(img, 0, 1)
-        img = np.swapaxes(img, 0, 2)
+    '''Previews a 3D ROI using pyplot.
 
-        fig = plt.figure()
+    Usage: preview_roi(image)
+    '''
 
-        for num, each_slice in enumerate(img):
-            y = fig.add_subplot(2, 2, num+1)
-            new_img = each_slice
-            new_img = np.reshape(new_img, (40, 40))
-            y.imshow(new_img)
-        plt.show()
+    img = np.swapaxes(img, 0, 1)
+    img = np.swapaxes(img, 0, 2)
+
+    fig = plt.figure()
+
+    for num, each_slice in enumerate(img):
+        y = fig.add_subplot(2, 2, num+1)
+        new_img = each_slice
+        new_img = np.reshape(new_img, (40, 40))
+        y.imshow(new_img)
+    plt.show()
 
 
 def main():
-    """
-    Test and view augmentation effects on img inputs.
-    """
+    '''Test and view augmentation effects on img inputs.
+    '''
 
     # Test policy transformation application
     x_train = np.load('x_train.npy')
     x_train = np.reshape(x_train, (len(x_train), 40, 40, 4, 1))
 
-    test_policy = Policy("flip", 0, 1, "noise", 2, 1)
+    test_policy = Policy('flip', 0, 1, 'noise', 2, 1)
 
     roi = x_train[0]
     preview_roi(roi)

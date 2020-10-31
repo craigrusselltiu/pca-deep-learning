@@ -1,14 +1,26 @@
 class Config():
 
     def __init__(self):
-        self.x_path = "x_train.npy"
-        self.y_path = "y_train.npy"
+        self.x_path = 'data/x_train.npy'
+        self.y_path = 'data/y_train.npy'
+        self.img_path = '../../prostate_images/PROSTATEx'
 
-        self.aa_search_epochs = 36
-        self.aa_train_epochs = 25
-        self.aa_val_split = 0.1
-        self.aa_transforms = ["flip", "affine", "noise", "blur", "elasticD"]
-        self.aa_seed = 69420
-        self.aa_model = "base_64"
-        self.aa_batch = 1
-        self.aa_log = str(self.aa_seed) + "_best_policies.txt"
+        self.train = False
+        self.test = True
+        self.train_augment = 'random'
+        self.train_model = 'models/trained_base_64' # Load model
+        self.train_save = 'models/trained_base_64' # Save model
+        self.train_epochs = 50
+
+        self.aa_seed = 2020 # Random seed for reproducibility
+        self.aa_transforms = ['flip', 'affine', 'noise', 'blur', 'elasticD']
+        self.aa_model = 'models/base_64' # Child model used for training
+
+        self.aa_search_epochs = 240 # Number of epochs for random search
+        self.aa_train_epochs = 30 # Number of epochs for training each policy
+        self.aa_val_split = 0.1 # Validation split for child model
+        self.aa_batch = 1 # Batch size for child model
+
+        self.aa_n_best = 24 # Keep n best policies
+        self.aa_log = 'logs/' + str(self.aa_seed) + '_best_policies.txt'
+        

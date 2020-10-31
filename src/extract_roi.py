@@ -3,19 +3,20 @@ import os
 import pandas as pd
 import re
 
+from config import Config
 from operator import mul
 from pydicom import dcmread
 from scipy.ndimage import zoom
 
-
-img_dir = '../../prostate_images/PROSTATEx'
+# Initialise config class
+config = Config()
 
 
 # Load data
 data = pd.read_csv('../lib/t2_tse_tra.csv')
 
 imgs = {}
-for dirpath, dirnames, filenames in os.walk(img_dir):
+for dirpath, dirnames, filenames in os.walk(config.img_path):
     if 't2tsetra' in dirpath:
         imgs[dirpath[32:46]] = dirpath
 
@@ -42,5 +43,5 @@ for index, row in data.iterrows():
 x = np.array(x)
 y = np.array(y)
 
-np.save('x_t2tsetra', x)
-np.save('y_t2tsetra', y)
+np.save('data/x_t2tsetra', x)
+np.save('data/y_t2tsetra', y)

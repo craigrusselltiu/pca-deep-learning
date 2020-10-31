@@ -1,0 +1,14 @@
+Epochs ran: 36
+Seed: 69420
+
+Best policies:
+1. (elasticD, 8, 0.7, elasticD, 7, 0.2) | Kappa: 0.9023255813953488
+2. (noise, 2, 0.5, flip, 9, 0.2) | Kappa: 0.8
+3. (noise, 2, 0.3, flip, 7, 0.6) | Kappa: 0.7913907284768211
+4. (flip, 8, 0.8, flip, 7, 0.9) | Kappa: 0.7825613079019074
+5. (blur, 5, 0.9, affine, 8, 0.2) | Kappa: 0.7659824046920821
+6. (affine, 3, 0.0, affine, 0, 0.1) | Kappa: 0.7389830508474575
+7. (flip, 0, 0.1, blur, 0, 0.2) | Kappa: 0.7367164179104477
+8. (flip, 8, 1.0, flip, 9, 0.2) | Kappa: 0.722117202268431
+9. (noise, 2, 1.0, noise, 2, 0.2) | Kappa: 0.7138964577656675
+10. (blur, 4, 1.0, elasticD, 0, 0.7) | Kappa: 0.6929824561403508
