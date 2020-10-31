@@ -1,4 +1,6 @@
 class Config():
+    '''Configuration class for efficient setting changes.
+    '''
 
     def __init__(self):
         self.x_path = 'data/x_train.npy'
