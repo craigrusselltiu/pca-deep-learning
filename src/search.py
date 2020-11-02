@@ -83,8 +83,8 @@ def train(m, x_train, y_train, x_val, y_val, x_test, y_test):
 def main():
     seed(config.aa_seed)
 
-    x_train = np.load('x_adc.npy')
-    y_train = np.load('y_adc.npy')
+    x_train = np.load('data/x_adc.npy')
+    y_train = np.load('data/y_adc.npy')
 
     # Reshape x_train to fit oversampler
     orig_shape = np.shape(x_train)
