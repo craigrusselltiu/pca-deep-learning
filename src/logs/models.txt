@@ -1,0 +1,28 @@
+Trained with randomly augmented images:
+
+Low Kappa: 0.34361702127659577
+High Kappa: 0.5525281634791721
+Average Quadratic Weighted Kappa: 0.46149800581961026
+
+Test Accuracy:  0.7470238095238095
+Quadratic Weighted Kappa:  0.7104572454758944
+
+
+Trained with alpha policy:
+
+Low Kappa: 0.3418875164887877
+High Kappa: 0.5987245523669364
+Average Quadratic Weighted Kappa: 0.4779556753966338
+
+Test Accuracy:  0.9166666666666666
+Quadratic Weighted Kappa:  0.894191437142078
+
+
+Trained with randomly augmented images with minimum transform probability of 0.1:
+
+Low Kappa: 0.4229445960374896
+High Kappa: 0.6901884340480832
+Average Quadratic Weighted Kappa: 0.5591247266653266
+
+Test Accuracy:  0.9107142857142857
+Quadratic Weighted Kappa:  0.8958361589583616

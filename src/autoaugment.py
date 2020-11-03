@@ -43,10 +43,86 @@ class Policy(object):
         transform1 = self.transform1(self.m1, self.p2)
         transform2 = self.transform2(self.m2, self.p2)
         transform = Compose([transform1, transform2])
+        # print('Policy Selected: (\'' + self.t1_input + '\', ' + str(self.m1_input) + ', ' + str(self.p1) + ', \'' + self.t2_input + '\', ' + str(self.m2_input) + ', ' + str(self.p2) + ')')
         return transform(img)
 
 
 class AlphaPolicy(object):
+    
+    def __init__(self):
+        self.policies = [
+            Policy('noise', 5, 0.5, 'flip', 6, 0.1),
+            Policy('elasticD', 7, 0.5, 'flip', 9, 0.7),
+            Policy('blur', 5, 0.8, 'noise', 9, 0.4),
+            Policy('elasticD', 7, 0.7, 'blur', 1, 0.4),
+
+            Policy('affine', 8, 0.7, 'elasticD', 8, 0.2),
+            Policy('flip', 7, 0.9, 'blur', 4, 0.3),
+            Policy('blur', 5, 1.0, 'elasticD', 6, 0.1),
+            Policy('noise', 6, 0.7, 'flip', 6, 0.4),
+
+            Policy('flip', 6, 0.4, 'affine', 9, 0.2),
+            Policy('elasticD', 3, 0.9, 'flip', 8, 0.1),
+            Policy('flip', 1, 0.3, 'noise', 2, 0.1),
+            Policy('flip', 2, 0.6, 'elasticD', 4, 0.6),
+
+            Policy('affine', 1, 0.9, 'elasticD', 8, 0.3),
+            Policy('flip', 9, 0.3, 'noise', 1, 0.2),
+            Policy('noise', 2, 0.2, 'elasticD', 2, 0.5),
+            Policy('elasticD', 3, 0.5, 'flip', 3, 0.3),
+
+            Policy('flip', 2, 1.0, 'blur', 7, 0.1),
+            Policy('flip', 5, 0.5, 'noise', 2, 0.4),
+            Policy('flip', 1, 0.5, 'affine', 6, 0.5),
+            Policy('blur', 1, 0.2, 'flip', 5, 0.1),
+
+            Policy('affine', 5, 0.7, 'blur', 5, 0.3),
+            Policy('noise', 1, 0.7, 'flip', 6, 0.2),
+            Policy('elasticD', 2, 0.3, 'flip', 9, 0.1),
+            Policy('affine', 1, 0.7, 'flip', 2, 0.6)
+        ]
+
+
+    def __call__(self, img):
+        policy = randint(0, len(self.policies) - 1)
+        return self.policies[policy](img)
+
+
+    def __repr__(self):
+        return 'AlphaPolicy'
+
+
+class BetaPolicy(object):
+    
+    def __init__(self):
+        self.policies = [
+            Policy('noise', 5, 0.5, 'flip', 6, 0.1),
+            Policy('elasticD', 7, 0.5, 'flip', 9, 0.7),
+            Policy('blur', 5, 0.8, 'noise', 9, 0.4),
+            Policy('elasticD', 7, 0.7, 'blur', 1, 0.4),
+
+            Policy('affine', 8, 0.7, 'elasticD', 8, 0.2),
+            Policy('flip', 7, 0.9, 'blur', 4, 0.3),
+            Policy('blur', 5, 1.0, 'elasticD', 6, 0.1),
+            Policy('noise', 6, 0.7, 'flip', 6, 0.4),
+
+            Policy('flip', 6, 0.4, 'affine', 9, 0.2),
+            Policy('elasticD', 3, 0.9, 'flip', 8, 0.1),
+            Policy('flip', 1, 0.3, 'noise', 2, 0.1),
+            Policy('flip', 2, 0.6, 'elasticD', 4, 0.6)
+        ]
+
+
+    def __call__(self, img):
+        policy = randint(0, len(self.policies) - 1)
+        return self.policies[policy](img)
+
+
+    def __repr__(self):
+        return 'BetaPolicy'
+
+
+class GammaPolicy(object):
     
     def __init__(self):
         self.policies = [
@@ -66,9 +142,14 @@ class AlphaPolicy(object):
             Policy('noise', 1, 0.5, 'flip', 8, 0.3)
         ]
 
+
     def __call__(self, img):
         policy = randint(0, len(self.policies) - 1)
         return self.policies[policy](img)
+
+
+    def __repr__(self):
+        return 'GammaPolicy'
 
 
 def preview_roi(img):

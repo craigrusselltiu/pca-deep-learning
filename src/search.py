@@ -30,28 +30,57 @@ def update_policies(e, policies):
     log.close()
 
 
-def augment_imgs(x, policy):
-    '''Augment a list of images with a given policy.
-
-    Usage: augment_imgs(image_list, policy)
+def random_policy():
+    '''Generates and returns a random policy.
     '''
 
-    result = x
-    for i in range(len(x)):
+    transform1 = choice(config.aa_transforms)
+    m1 = randint(1, 9)
+    p1 = randint(config.aa_min_prob, 10) / 10.0
 
+    # Create new augmented choices to avoid duplicate policies
+    transforms_aug = config.aa_transforms.copy()
+    transforms_aug.remove(transform1)
+
+    transform2 = choice(transforms_aug)
+    m2 = randint(1, 9)
+    p2 = randint(config.aa_min_prob, 10) / 10.0
+
+    # print('Chosen policy:', transform1, 'm:', m1, 'p:', p1, '|', transform2, 'm:', m2, 'p:', p2)
+    return Policy(transform1, m1, p1, transform2, m2, p2)
+
+
+def augment(data, transform):
+    '''Augment input data with the provided transformation. Also works with policies.
+    Inputting 'random' as transform will generate a random policy to augment for every image.
+
+    Usage: augment(data, transform)
+    '''
+
+    # Generate random policy if transform input is 'random'
+    random = False
+    if transform == 'random':
+        random = True
+
+    output = data
+    for i in range(len(output)):
+
+        if random:
+            transform = random_policy()
+        
         # Get ROI and adjust axes for augmentation
-        roi = result[i]
+        roi = output[i]
         roi = np.swapaxes(roi, 2, 3)
         roi = np.swapaxes(roi, 1, 2)
         roi = np.swapaxes(roi, 0, 1)
 
         # Perform augmentation, adjust axes back, and update x_train
-        output = policy(roi)
-        output = np.swapaxes(output, 0, 1)
-        output = np.swapaxes(output, 1, 2)
-        output = np.swapaxes(output, 2, 3)
-        result[i] = output
-    return result
+        result = transform(roi)
+        result = np.swapaxes(result, 0, 1)
+        result = np.swapaxes(result, 1, 2)
+        result = np.swapaxes(result, 2, 3)
+        output[i] = result
+    return output
 
 
 def train(m, x_train, y_train, x_val, y_val, x_test, y_test):
@@ -81,6 +110,9 @@ def train(m, x_train, y_train, x_val, y_val, x_test, y_test):
 
 
 def main():
+    '''Main random search routine to find best augmentation policy.
+    '''
+
     seed(config.aa_seed)
 
     x_train = np.load('data/x_adc.npy')
@@ -107,21 +139,8 @@ def main():
     for e in range(config.aa_search_epochs):
         print('\n\n--- Random Search Epoch', e+1, '---')
 
-        transform1 = choice(config.aa_transforms)
-        m1 = randint(1, 9)
-        p1 = randint(1, 10) / 10.0
-
-        # Create new augmented choices to avoid duplicate policies
-        transforms_aug = config.aa_transforms.copy()
-        transforms_aug.remove(transform1)
-
-        transform2 = choice(transforms_aug)
-        m2 = randint(1, 9)
-        p2 = randint(1, 10) / 10.0
-
-        print('Chosen policy:', transform1, 'm:', m1, 'p:', p1, '|', transform2, 'm:', m2, 'p:', p2, '\n')
-        cur_policy = Policy(transform1, m1, p1, transform2, m2, p2)
-        x_aug = augment_imgs(x_train.copy(), cur_policy)
+        cur_policy = random_policy()  
+        x_aug = augment(x_train.copy(), cur_policy)
 
         cur_policy.kappa = train(config.aa_model, x_aug, y_train, x_val, y_val, x_test, y_test)
         print('\nQuadratic Weighted Kappa:', cur_policy.kappa)

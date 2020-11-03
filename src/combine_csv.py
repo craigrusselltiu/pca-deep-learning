@@ -12,12 +12,12 @@ def combine(img, img_csv, find_csv):
     frames = [img_df.reset_index(drop=True), find_df.reset_index(drop=True)] # reset indices
     combined = pd.concat(frames, axis = 1) # concatenate horizontally
     combined = combined.loc[:, ~combined.columns.duplicated()] # drop duplicate columns
-    combined.to_csv('../lib/' + img + '.csv')
+    combined.to_csv('../lib/test_' + img + '.csv')
 
 
 def main():
-    img_csv = '../lib/ProstateX-2-Images-Train.csv'
-    find_csv = '../lib/ProstateX-2-Findings-Train.csv'
+    img_csv = '../lib/ProstateX-2-Images-Test.csv'
+    find_csv = '../lib/ProstateX-2-Findings-Test.csv'
 
     combine(sys.argv[1], img_csv, find_csv)
 

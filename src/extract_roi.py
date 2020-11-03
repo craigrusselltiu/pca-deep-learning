@@ -13,12 +13,12 @@ config = Config()
 
 
 # Load data
-data = pd.read_csv('../lib/t2_tse_tra.csv')
+data = pd.read_csv('../lib/test_t2_tse_tra.csv')
 
 imgs = {}
 for dirpath, dirnames, filenames in os.walk(config.img_path):
     if 't2tsetra' in dirpath:
-        imgs[dirpath[32:46]] = dirpath
+        imgs[dirpath[44:58]] = dirpath
 
 x = []
 y = []
@@ -43,5 +43,5 @@ for index, row in data.iterrows():
 x = np.array(x)
 y = np.array(y)
 
-np.save('data/x_t2tsetra', x)
-np.save('data/y_t2tsetra', y)
+np.save('data/test_x_t2tsetra', x)
+np.save('data/test_y_t2tsetra', y)
