@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from autoaugment import Policy, AlphaPolicy, BetaPolicy, preview_roi
 from config import Config
 from imblearn.over_sampling import RandomOverSampler
-from keras.callbacks import EarlyStopping
+from keras.callbacks import EarlyStopping, ModelCheckpoint
 from keras.utils import to_categorical
 from keras.models import load_model
 from search import augment, random_policy
@@ -39,7 +39,7 @@ def preprocess(x_train, y_train):
     x_train = np.reshape(x_train, (len(x_train), orig_shape[1], orig_shape[2], orig_shape[3]))
 
     # Reshape and adjust dataset to prepare for training
-    x_train = x_train.reshape(len(x_train), 40, 40, 4, 1)
+    x_train = x_train.reshape(len(x_train), orig_shape[1], orig_shape[2], orig_shape[3], 1)
     y_train = [x - 1 for x in y_train]
     y_train = to_categorical(y_train, 5)
 
@@ -47,6 +47,41 @@ def preprocess(x_train, y_train):
     x_train, x_test, y_train, y_test = train_test_split(x_train, y_train, test_size=0.1, stratify=y_train)
     x_train, x_val, y_train, y_val = train_test_split(x_train, y_train, test_size=0.1, stratify=y_train)
     return x_train, y_train, x_val, y_val, x_test, y_test
+
+
+def new_preprocess(x_train, y_train):
+    '''Preprocess x and y inputs for training.
+
+    Returns: x_train, y_train, x_val, y_val, x_test, y_val
+    '''
+
+    # Reshape x_train to fit oversampler
+    orig_shape = np.shape(x_train)
+    x_train = np.reshape(x_train, (orig_shape[0], orig_shape[1] * orig_shape[2] * orig_shape[3]))
+
+    # Oversample imbalanced classes so that all classes have equal occurrences
+    oversample = RandomOverSampler(sampling_strategy='not majority')
+
+    # Reshape x_train back to its original form
+    x_train, y_train = oversample.fit_resample(x_train, y_train)
+    x_train = np.reshape(x_train, (len(x_train), orig_shape[1], orig_shape[2], orig_shape[3]))
+
+    # Reshape and adjust dataset to prepare for training
+    x_train = x_train.reshape(len(x_train), orig_shape[1], orig_shape[2], orig_shape[3], 1)
+    y_train = [x - 1 for x in y_train]
+    y_train = to_categorical(y_train, 5)
+
+    # Split train, validate
+    x_train, x_val, y_train, y_val = train_test_split(x_train, y_train, test_size=0.3, stratify=y_train)
+    np.save('data/alpha_x_val', x_val)
+    np.save('data/alpha_y_val', y_val)
+
+    # Quadruple training set
+    for i in range(2):
+        x_train = np.concatenate([x_train, x_train])
+        y_train = np.concatenate([y_train, y_train])
+
+    return x_train, y_train, x_val, y_val
 
 
 def random_augment(x):
@@ -75,16 +110,14 @@ def predict(model, x, y):
     Usage: predict(model, x_test, y_test)
     '''
 
-    # Reshape arrays
-    x = np.reshape(x, (len(x), 40, 40, 4, 1))
-    y = [x - 1 for x in y]
-    y = to_categorical(y, 5)
+    # # Reshape arrays
+    # x = np.reshape(x, (len(x), 40, 40, 4, 1))
+    # y = [x - 1 for x in y]
+    # y = to_categorical(y, 5)
     
     # Predict for test data
     predictions = model.predict(x)
 
-    # Print out predictions
-    print('\n', predictions, '\n')
     correct = 0
     y_true = []
     y_pred = []
@@ -96,20 +129,21 @@ def predict(model, x, y):
         if np.argmax(predictions[i]) == np.argmax(y[i]):
             correct += 1
     print('\nTest Accuracy: ', correct/len(predictions))
-    print('Quadratic Weighted Kappa: ', cohen_kappa_score(y_true, y_pred, weights='quadratic'))
+    kappa = cohen_kappa_score(y_true, y_pred, weights='quadratic')
+    print('Quadratic Weighted Kappa: ', kappa)
+    return kappa
 
 
-def predict_average(model, x, y):
+def predict_average(model, x_res, y_aug):
     
-    x_res = np.reshape(x.copy(), (len(x), 40, 40, 4, 1))
-    
-    y_aug = [x - 1 for x in y]
-    y_aug = to_categorical(y_aug, 5)
+    # x_res = np.reshape(x.copy(), (len(x), 40, 40, 4, 1))
+    # y_aug = [x - 1 for x in y]
+    # y_aug = to_categorical(y_aug, 5)
 
     kappas = []
     for i in range(config.test_epochs):
-        x_aug = augment(x_res.copy(), 'random')
-        predictions = model.predict(x_aug)
+        # x_aug = augment(x_res.copy(), 'random')
+        predictions = model.predict(x_res)
 
         y_true = []
         y_pred = []
@@ -189,7 +223,12 @@ def main():
     print('Loading model ' + config.train_model + '...')
     model = load_model(config.train_model)
 
-    x_train, y_train, x_val, y_val, x_test, y_test = preprocess(x.copy(), y)
+    if config.preprocess == 'old':
+        x_train, y_train, x_val, y_val, x_test, y_test = preprocess(x.copy(), y)
+    elif config.preprocess == 'new':
+        x_train, y_train, x_val, y_val = new_preprocess(x.copy(), y)
+    elif config.preprocess == 'none':
+        print('Skipping preprocess...')
 
     if config.train_augment == 'random':
         print('Randomly augmenting input images...')
@@ -207,21 +246,32 @@ def main():
 
     if config.train:
         print('Training model...')
+        checkpoint = ModelCheckpoint('alpha_best.pt', monitor='val_loss', save_best_only=True)
+        
         model.fit(x_train, y_train,
             epochs=config.train_epochs,
             validation_split=0.1,
             validation_data=(x_val, y_val),
             batch_size=1,
-            shuffle=True)
+            shuffle=True,
+            callbacks=[checkpoint])
         model.save(config.train_save)
     else:
         print('Skipping training...')
 
     if config.test:
         print('Testing model...')
-        predict(model, x, y)
-        # predict_majority(model, x, y)
-        #predict_average(model, x, y)
+        # model.load_weights('alpha_best.pt')
+        x_test = np.load('data/alpha_x_val.npy')
+        y_test = np.load('data/alpha_y_val.npy')
+        predict(model, x_test, y_test)
+
+        model = load_model('models/new_random_base_64')
+        x_test = np.load('data/x_val.npy')
+        y_test = np.load('data/y_val.npy')
+        predict(model, x_test, y_test)
+        # predict_majority(model, x_test, y_test)
+        # predict_average(model, x_test, y_test)
     else:
         print('Skipping testing...')
 

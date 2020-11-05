@@ -14,7 +14,13 @@ resample = (384, 384, 19)
 
 
 def main():
-    prev_dcm()
+    
+    x = np.load('../src/data/test_x_t2tsetra.npy')
+    y = np.load('../src/data/test_y_t2tsetra.npy')
+    x_val = np.load('../src/data/x_val.npy')
+    y_val = np.load('../src/data/y_val.npy')
+    print(y_val)
+    print(np.shape(x), np.shape(y), np.shape(x_val), np.shape(y_val))
 
 
 # Preview 3D array

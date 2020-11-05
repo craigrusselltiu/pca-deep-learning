@@ -5,13 +5,18 @@ class Config():
     def __init__(self):
         self.x_path = 'data/x_train.npy'
         self.y_path = 'data/y_train.npy'
-        self.img_path = '../../prostate_images/PROSTATEx-2/PROSTATEx'
+        self.img_path = '../../prostate_images/PROSTATEx'
+        self.roi_x = 40
+        self.roi_y = 40
+        self.roi_z = 4
+
+        self.preprocess = 'none'
 
         self.train = False
         self.train_augment = 'none'
-        self.train_model = 'models/min_random_base_64' # Load model
-        self.train_save = 'models/min_random_base_64' # Save model
-        self.train_epochs = 100
+        self.train_model = 'models/new_alpha_base_64' # Load model
+        self.train_save = 'models/new_alpha_base_64' # Save model
+        self.train_epochs = 50
 
         self.test = True
         self.test_epochs = 100

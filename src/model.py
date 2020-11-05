@@ -1,6 +1,10 @@
 from keras.models import Sequential
 from keras.layers import Conv3D, Dense, Flatten, MaxPooling3D, Dropout
 from keras.optimizers import Adam, SGD
+from config import Config
+
+# Initialise config
+config = Config()
 
 
 def cnn_3d():
@@ -10,11 +14,14 @@ def cnn_3d():
     '''
 
     model = Sequential()
-    model.add(Conv3D(input_shape=(40, 40, 4, 1), filters=16, kernel_size=(3, 3, 3), padding='same', activation='relu'))
-    model.add(MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2)))
+    model.add(Conv3D(input_shape=(config.roi_x, config.roi_y, config.roi_z, 1), filters=16, kernel_size=(3, 3, 3), padding='same', activation='relu'))
+    model.add(MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2), padding='same'))
 
     model.add(Conv3D(filters=32, kernel_size=(3, 3, 3), padding='same', activation='relu'))
-    model.add(MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2)))
+    model.add(MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2), padding='same'))
+
+    model.add(Conv3D(filters=64, kernel_size=(3, 3, 3), padding='same', activation='relu'))
+    model.add(MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2), padding='same'))
 
     model.add(Flatten())
     model.add(Dense(units=64, activation='relu'))
@@ -36,7 +43,7 @@ def main():
 
     model = cnn_3d()
     model.summary()
-    model.save('base_64')
+    model.save('models/new_base_64')
 
 
 if __name__ == '__main__':

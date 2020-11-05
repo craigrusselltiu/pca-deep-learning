@@ -13,12 +13,12 @@ config = Config()
 
 
 # Load data
-data = pd.read_csv('../lib/test_t2_tse_tra.csv')
+data = pd.read_csv('../lib/BVAL.csv')
 
 imgs = {}
 for dirpath, dirnames, filenames in os.walk(config.img_path):
-    if 't2tsetra' in dirpath:
-        imgs[dirpath[44:58]] = dirpath
+    if 'BVAL' in dirpath:
+        imgs[dirpath[32:46]] = dirpath
 
 x = []
 y = []
@@ -33,8 +33,13 @@ for index, row in data.iterrows():
     array = (array - array.min()) / (array.max() - array.min()) # normalise 0 to 1
 
     position = eval(re.sub('\s+', ',', row["ijk"])) # get lesion center
-    position = tuple(map(int, map(mul, dimensions, position))) # correct to resampled position  
-    roi = array[position[0]-20:position[0]+20, position[1]-20:position[1]+20, position[2]-2:position[2]+2] # extract ROI volume
+    position = tuple(map(int, map(mul, dimensions, position))) # correct to resampled position 
+
+    roi = array[
+        int(position[0] - config.roi_x/2) : int(position[0] + config.roi_x/2),
+        int(position[1] - config.roi_y/2) : int(position[1] + config.roi_y/2),
+        int(position[2] - config.roi_z/2) : int(position[2] + config.roi_z/2)
+    ] # extract ROI volume
 
     x.append(roi)
     y.append(row["ggg"])
@@ -43,5 +48,5 @@ for index, row in data.iterrows():
 x = np.array(x)
 y = np.array(y)
 
-np.save('data/test_x_t2tsetra', x)
-np.save('data/test_y_t2tsetra', y)
+np.save('data/test_x_bval', x)
+np.save('data/test_y_bval', y)
