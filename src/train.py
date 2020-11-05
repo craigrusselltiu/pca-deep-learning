@@ -55,26 +55,28 @@ def new_preprocess(x_train, y_train):
     Returns: x_train, y_train, x_val, y_val, x_test, y_val
     '''
 
-    # Reshape x_train to fit oversampler
-    orig_shape = np.shape(x_train)
-    x_train = np.reshape(x_train, (orig_shape[0], orig_shape[1] * orig_shape[2] * orig_shape[3]))
-
-    # Oversample imbalanced classes so that all classes have equal occurrences
-    oversample = RandomOverSampler(sampling_strategy='not majority')
-
-    # Reshape x_train back to its original form
-    x_train, y_train = oversample.fit_resample(x_train, y_train)
-    x_train = np.reshape(x_train, (len(x_train), orig_shape[1], orig_shape[2], orig_shape[3]))
-
     # Reshape and adjust dataset to prepare for training
+    orig_shape = np.shape(x_train)
     x_train = x_train.reshape(len(x_train), orig_shape[1], orig_shape[2], orig_shape[3], 1)
     y_train = [x - 1 for x in y_train]
     y_train = to_categorical(y_train, 5)
 
     # Split train, validate
     x_train, x_val, y_train, y_val = train_test_split(x_train, y_train, test_size=0.3, stratify=y_train)
-    np.save('data/alpha_x_val', x_val)
-    np.save('data/alpha_y_val', y_val)
+
+    # Reshape x_train to fit oversampler
+    orig_shape = np.shape(x_train)
+    x_train = np.reshape(x_train, (orig_shape[0], orig_shape[1] * orig_shape[2] * orig_shape[3] * orig_shape[4]))
+
+    # Oversample imbalanced classes so that all classes have equal occurrences
+    oversample = RandomOverSampler(sampling_strategy='not majority')
+
+    # Reshape x_train back to its original form
+    x_train, y_train = oversample.fit_resample(x_train, y_train)
+    x_train = np.reshape(x_train, (len(x_train), orig_shape[1], orig_shape[2], orig_shape[3], orig_shape[4]))
+
+    np.save('data/x_val', x_val)
+    np.save('data/y_val', y_val)
 
     # Quadruple training set
     for i in range(2):
@@ -110,10 +112,10 @@ def predict(model, x, y):
     Usage: predict(model, x_test, y_test)
     '''
 
-    # # Reshape arrays
-    # x = np.reshape(x, (len(x), 40, 40, 4, 1))
-    # y = [x - 1 for x in y]
-    # y = to_categorical(y, 5)
+    # Reshape arrays
+    x = np.reshape(x, (len(x), 40, 40, 4, 1))
+    y = [x - 1 for x in y]
+    y = to_categorical(y, 5)
     
     # Predict for test data
     predictions = model.predict(x)
@@ -129,6 +131,14 @@ def predict(model, x, y):
         if np.argmax(predictions[i]) == np.argmax(y[i]):
             correct += 1
     print('\nTest Accuracy: ', correct/len(predictions))
+
+    table = [[0 for i in range(5)] for j in range(5)]
+
+    for i in range(len(y_true)):
+        table[y_true[i]][y_pred[i]] += 1
+    
+    print(table)
+
     kappa = cohen_kappa_score(y_true, y_pred, weights='quadratic')
     print('Quadratic Weighted Kappa: ', kappa)
     return kappa
@@ -264,12 +274,12 @@ def main():
         # model.load_weights('alpha_best.pt')
         x_test = np.load('data/alpha_x_val.npy')
         y_test = np.load('data/alpha_y_val.npy')
-        predict(model, x_test, y_test)
+        predict(model, x, y)
 
         model = load_model('models/new_random_base_64')
         x_test = np.load('data/x_val.npy')
         y_test = np.load('data/y_val.npy')
-        predict(model, x_test, y_test)
+        predict(model, x, y)
         # predict_majority(model, x_test, y_test)
         # predict_average(model, x_test, y_test)
     else:

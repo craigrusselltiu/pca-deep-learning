@@ -20,9 +20,6 @@ def cnn_3d():
     model.add(Conv3D(filters=32, kernel_size=(3, 3, 3), padding='same', activation='relu'))
     model.add(MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2), padding='same'))
 
-    model.add(Conv3D(filters=64, kernel_size=(3, 3, 3), padding='same', activation='relu'))
-    model.add(MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2), padding='same'))
-
     model.add(Flatten())
     model.add(Dense(units=64, activation='relu'))
     model.add(Dropout(rate=0.4))
@@ -43,7 +40,7 @@ def main():
 
     model = cnn_3d()
     model.summary()
-    model.save('models/new_base_64')
+    # model.save('models/new_base_64')
 
 
 if __name__ == '__main__':
