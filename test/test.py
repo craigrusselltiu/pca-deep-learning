@@ -4,8 +4,13 @@ import numpy as np
 import os
 import pandas as pd
 import tensorflow as tf
+import sys
 
 from pydicom import dcmread
+
+sys.path.append('../src')
+from search import augment
+from autoaugment import Policy, preview_roi
 
 
 img_dir = '../../prostate_images/PROSTATEx'
@@ -15,12 +20,13 @@ resample = (384, 384, 19)
 
 def main():
     
-    x = np.load('../src/data/test_x_t2tsetra.npy')
-    y = np.load('../src/data/test_y_t2tsetra.npy')
-    x_val = np.load('../src/data/x_val.npy')
-    y_val = np.load('../src/data/y_val.npy')
-    print(y_val)
-    print(np.shape(x), np.shape(y), np.shape(x_val), np.shape(y_val))
+    x = np.load('../src/data/x_adc.npy')
+    x = np.reshape(x, (len(x), 40, 40, 4, 1))
+
+    preview_roi(x[0])
+    policy = Policy('elasticD', 3, 1, 'noise', 0, 1)
+    x_new = augment(x.copy(), policy)
+    preview_roi(x_new[0])
 
 
 # Preview 3D array

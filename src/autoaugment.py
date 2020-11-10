@@ -43,7 +43,7 @@ class Policy(object):
         transform1 = self.transform1(self.m1, self.p2)
         transform2 = self.transform2(self.m2, self.p2)
         transform = Compose([transform1, transform2])
-        # print('Policy Selected: (\'' + self.t1_input + '\', ' + str(self.m1_input) + ', ' + str(self.p1) + ', \'' + self.t2_input + '\', ' + str(self.m2_input) + ', ' + str(self.p2) + ')')
+        print('Policy Selected: (\'' + self.t1_input + '\', ' + str(self.m1_input) + ', ' + str(self.p1) + ', \'' + self.t2_input + '\', ' + str(self.m2_input) + ', ' + str(self.p2) + ')')
         return transform(img)
 
 
