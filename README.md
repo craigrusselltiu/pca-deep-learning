@@ -1,2 +1,2 @@
-# pca-deep-learning
- My thesis project to improve current means in classifying prostate cancer aggressiveness via deep learning.
+# Improving Methods of Classifying Prostate Cancer Aggressiveness Using 3D Convolutional Neural Networks and AutoAugment
+My thesis project aimed at improving current means in classifying prostate cancer aggressiveness by exploring the effectiveness of  3D convolutional neural networks (CNN) combined with AutoAugment. Two models were trained for this study, with one using randomly augmented images, and another using the best augmentation ‘policies’ obtained from AutoAugment. A policy consists of two contiguous image augmentations, detailed with the magnitude and probability in applying each.
