@@ -3,6 +3,7 @@ My thesis project aimed at improving current means in classifying prostate cance
 
 ## What I Learned
 - Machine learning libraries including Keras and Tensorflow
+- Using said libraries to implement originally devised models from scratch
 - Reading and manipulating CSV files for specific functionalities
 - Researching, designing, executing, and recording experiment results on machine learning models
 - Among other things!
